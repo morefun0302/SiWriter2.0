@@ -1,0 +1,60 @@
+<h1>Multitouch Module</h1>
+<h2>Description</h2>
+<p>Handle multi touch events inside your iOS applications.</p>
+<h2>Accessing the multitouch Module</h2>
+<p>First of all, add the multitouch module to your applications tiapp.xml by adding the following
+line inside the <code>&lt;modules&gt;</code> tag:</p>
+<pre><code>&lt;module version="1.2"&gt;org.urish.titanium.multitouch&lt;/module&gt;
+</code></pre>
+<p>To load the module, add the following line to your javascript code:</p>
+<pre><code>require("org.urish.titanium.multitouch");
+</code></pre>
+<h2>Reference</h2>
+<p>You can enable multitouch for any window or view. First of all, set the 'multitouch' property of the view to true
+(see example below). Then add listeners to the standard touchstart/touchmove/touchend/touchcancel events. These events
+will include a new property named "points".</p>
+<p>The new "points" property is actually a dictionary with information about the touches. Each touch has a unique id which can be used to track the specific touch across several touch events. The dictionary contains the touch id as the key of the entry, and an object contains 'x' and 'y' properties as the value.</p>
+<p>The 'x' and 'y' properties for each touch are relative to the view. You can also get the global coordinates of the
+touch event by looking into the 'globalPoint' property.</p>
+<h2>Usage</h2>
+<pre><code>require("org.urish.titanium.multitouch");
+
+win.multitouch=true;
+
+win.addEventListener("touchstart", function(event) {
+    Ti.API.info("Touches started, points: " + JSON.stringify(event.points));
+
+    // Sample code for interating the points:
+    for (var pointName in event.points) {
+        Ti.API.info("Point " + pointName + " x=" + event.points[pointName].x
+            + ", y=" + event.points[pointName].y);
+    }
+
+    // You can use the above for the other events as well (touchmove, 
+    // touchend, touchcancel). Note that event.points is not an array, 
+    // so you should iterate it like the example above, and not as an array.
+});
+
+win.addEventListener("touchmove", function(event) {
+    Ti.API.info("Touches moved, points: " + JSON.stringify(event.points));
+});
+
+win.addEventListener("touchend", function(event) {
+    Ti.API.info("Touches ended, points: " + JSON.stringify(event.points));
+});
+
+win.addEventListener("touchcanceled", function(event) {
+    Ti.API.info("Touches canceled, points: " + JSON.stringify(event.points));
+});
+</code></pre>
+<p>For an extended example, please check the provided app.js (under the example directory).</p>
+<h2>Watch in action</h2>
+<p>The TiMultiTouch module is used in the Zampona iOS application. The application resembles a peruvian panflute and
+uses the TiMultiTouch to enable playing two or more notes simultaneously. You can get it for free from <a href="http://itunes.apple.com/us/app/zampona/id448009267?mt=8">Zampona on iTunes</a>.</p>
+<h2>Author</h2>
+<p>Copyright (C) 2011, 2012 Uri Shaked <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#114;&#105;&#64;&#115;&#97;&#108;&#115;&#97;&#52;&#102;&#117;&#110;&#46;&#99;&#111;&#46;&#105;&#108;">&#117;&#114;&#105;&#64;&#115;&#97;&#108;&#115;&#97;&#52;&#102;&#117;&#110;&#46;&#99;&#111;&#46;&#105;&#108;</a>.
+Some portions of the code are based on the original TiMultitouch module by masuidrive.</p>
+<p>Homepage: <a href="https://www.urish.org/">Uri Shaked</a>.
+Github page: <a href="https://www.github.org/urish">https://www.github.org/urish</a>.</p>
+<h2>License</h2>
+<p>MIT License</p>

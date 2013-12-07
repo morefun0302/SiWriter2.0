@@ -1,0 +1,235 @@
+            body {
+                font-family: Arial, sans-serif;
+                overflow: hidden;
+                }
+
+
+            #chordKeybaord {
+
+                width: 100%;
+            }
+
+            #mover {
+                position: relative;
+                left: 0px;
+                right: 0px;
+                padding: 0px;
+                top: 0px;
+                z-index: 1;
+
+            }
+
+            .chordKeyx { /* the Numbers (No./ num) and Shift (caps) keys */
+                border-top-left-radius: 30px;
+                border-top-right-radius: 30px;
+                position: absolute;
+                height: 96px;
+                width: 96px;
+                background: url(images/small_buttons.png) 0px -1px;
+                text-align: center;
+                color: #777;
+                display: none;
+                z-index: 1000;
+                border-bottom-left-radius: 30px;
+                border-bottom-right-radius: 30px;
+            }
+        
+
+            .chordKey { /* the DEL key */
+                border-top-left-radius: 30px;
+                border-top-right-radius: 30px;
+                position: absolute;
+                height: 96px;
+                width: 96px;
+                background: url(images/small_buttons.png) 0px -1px;
+                text-align: center;
+                color: #777;
+                display: none;
+                z-index: 1000;
+                border-bottom-left-radius: 30px;
+                border-bottom-right-radius: 30px;
+            }
+
+
+            .chordKeyw { /* the shape of the keys */
+                border-top-left-radius: 30px;
+                border-top-right-radius: 30px;
+                position: absolute;
+                height: 194px;
+                width: 115px;
+                background: url(images/buttonw.png) -5px 0px;
+                text-align: center;
+                color: #777;
+                z-index: 1000;
+                border-bottom-left-radius: 30px;
+                border-bottom-right-radius: 30px;
+            }
+            
+                
+            
+            .chordKeyUp {
+                margin-top:2px;
+                margin-left:2px;                
+            }
+
+            .kHelper {
+                font-family: Arial, sans-serif;
+                position: absolute;
+                z-index:100;
+                top: -28px;
+                background: #fff;
+                opacity: .7;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                color: #000;
+                padding:1px;
+                font-size: 10px;
+                text-align:center;
+                width:90%;
+                margin-left:2.5%;
+            }
+            
+          div#k0 .kHelper{
+          	       width:115%;
+          	       padding:0 0 0 2;
+          	       margin-left:-7.5%;
+            }
+
+            .kHelpers {/* shift lock keys*/
+                position: absolute;
+                font-family: Arial, sans-serif;
+                height: 1em;
+                background: #fff;
+                padding:2px 4px 2px 4px;
+                opacity: .7;
+                z-index:100;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                color: #000;
+                font-size: 14px;
+                text-align: center;
+                margin-left:-25px;
+                margin-top:-10px;
+            }
+
+            .Del {
+            	position:absolute;
+            	left:110px !important;
+            }           
+            
+
+            
+            .Green{
+                color: #050;
+                font-family: Arial, sans-serif;
+                font-weight:600;
+                padding-top:4px;
+                }
+                
+            .kHelper b {
+                color: #050;
+                font-size: 18px;
+            }
+
+div#k7{ /* Delete */
+        top: 340px; 
+        left: 285px; 
+        }  
+
+div#k0{
+        top: 300px; 
+        left: 160px;
+       }
+
+div #k1 {
+        top: 75px; 
+        left: 210px; 
+        }
+
+div #k2 {
+        top: 30px; 
+        left: 335px;
+        }
+        
+div #k3 {
+        top: 40px; 
+        left: 460px;}
+
+div #k4 {
+        top: 90px; 
+        left: 585px;}
+   
+div #k6 {  /* number lock */
+        top: 300px; 
+        left: 55px;}
+
+div #k5 {  /* Caps lock */
+        top: 398px; 
+        left: 55px;
+        }
+        
+.CapsKeyUp,
+.DelKeyUp,
+.NumKeyUp {
+        background: url(images/small_buttonsA.png);
+    }
+
+.CapsKeyUpL,
+.DelKeyUpL,
+.NumKeyUpL {
+     background: url(images/small_buttonsL.png);
+    }
+
+span {
+	color:#ddd;
+}
+ 
+ #symbols {
+	position:absolute;
+	top:275px;
+	left:70px;
+	z-index:200;
+	color: #1fd917;
+	color: #005500;
+ }
+ 
+ .Symbols {
+ 	display:block !important;
+ 	}          
+ 	
+ .hide {
+ 	color:#000 !important;
+ 	/*display:none !important;*/
+ } 
+
+
+ div#Title {
+   	position:absolute;
+   	z-index:1000;
+   	font-size:30px;
+   	top:460px;
+   	left:510px;
+   }
+   
+   
+#kWindshield {/* small text view */
+	margin-left:244px;
+	color:#000;
+	font-weight:600;
+	position:absolute;
+	z-index:100;
+	background: #fff;
+    padding:2px 4px 2px 4px;
+    opacity: .7;
+   
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+ 	}
+ 	

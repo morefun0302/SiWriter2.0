@@ -1,0 +1,17 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.2
+description: Adds multitouch support to Titanium iOS
+author: Uri Shaked
+license: MIT
+copyright: Copyright (c) 2011, 2012 Uri Shaked 
+platform: iphone
+
+# these should not be edited
+name: multitouch
+moduleid: org.urish.titanium.multitouch
+guid: 3cfea9ea-13ff-4d13-ac12-8543fec2f132
+platform: iphone
+minsdk: 2.0.1
