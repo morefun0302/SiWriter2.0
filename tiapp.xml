@@ -45,11 +45,7 @@
         </splash>
         <theme>default</theme>
     </mobileweb>
-    <modules>
-        <module platform="iphone">facebook</module>
-        <module platform="commonjs">ti.cloud</module>
-        <module version="1.2">org.urish.titanium.multitouch</module>
-    </modules>
+    <modules/>
     <deployment-targets>
         <target device="tizen">false</target>
         <target device="mobileweb">false</target>
