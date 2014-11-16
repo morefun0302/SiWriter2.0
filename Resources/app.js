@@ -191,12 +191,6 @@ Ti.Gesture.addEventListener('orientationchange', function(e) {
 		orientation : orientation
 	});
 
-	// if (orientation == "portrait") {
-	// portrait();
-	// }
-	// if (orientation == "landscape") {
-	// landscape();
-	// }
 
 	Ti.API.info('-- App Line 311 ---------------------------------orientation: ' + orientation);
 	Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 119 = " + LRH);

@@ -293,13 +293,12 @@ function timeStamp() {
 function displayVariables() {
 contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + allVariables + "\r\r";
 	txtViewDesc.value = contentTyped+ "END\r\r";
-	displayVariables2("Simon was here");
 }
 
-function displayVariables2(Variable) {
+function dV(Variable,Value) {
 	contentTyped = txtViewDesc.value;
-	contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + Variable + "\r\r";
-	txtViewDesc.value = contentTyped+ "END\r\r";
+	contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + Variable +"="+ Value;
+	txtViewDesc.value = contentTyped+ "\r";
 }
 
 
@@ -399,7 +398,7 @@ function get_MasterSettings() {
 		if (props[c] == "FPhelp") {
 			//var FPhelp = value;
 		}
-
+dV(props[c],props[c].value);
 	}
 }
 
