@@ -49,6 +49,7 @@ var language = Titanium.Platform.locale;
 var whole_sentance = "";
 var sentance = "";
 var letter = "";
+var allVariables="START";
 Titanium.App.Properties.setString('locale', language);
 Titanium.App.language = language;
 Ti.API.info(props);

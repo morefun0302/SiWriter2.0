@@ -24,7 +24,7 @@ function recover_settings() {
 			setting = true;
 		}
 		Titanium.API.info(props[c] + " = " + value);
-
+	allVariables=allVariables+"\r"+(props[c] + " = " + value);
 		if (props[c] == "Master_Setting_Window_Switch") {
 			help_windowSwitch.value = setting;
 			Ti.App.fireEvent('FPhelp_setting', {
@@ -280,8 +280,17 @@ function pasteTextFromClipboard() {
 function timeStamp() {
 	contentTyped = txtViewDesc.value;
 	getDate();
-	contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + Now + "\n\n";
-	txtViewDesc.value = contentTyped;
+	contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + Now + "\r";
+	/*txtViewDesc.value = contentTyped;*/
+
+	displayVariables();
+}
+
+function displayVariables() {
+
+
+contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + allVariables + "\r\r";
+	txtViewDesc.value = contentTyped+ "END\r\r";
 }
 
 function getDate()
