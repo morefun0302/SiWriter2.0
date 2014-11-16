@@ -32,9 +32,9 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.5.2.1394702758560</string>
+	<string>1.5.9.7</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.5.2.1394702758560</string>
+	<string>1.5.9</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>LSApplicationCategoryType</key>
@@ -76,5 +76,51 @@
 	</array>
 	<key>NSHumanReadableCopyright</key>
 	<string>appicon.png</string>
+	<key>UILaunchImages</key>
+	<array>
+		<dict>
+			<key>UILaunchImageName</key>
+			<string>Default</string>
+			<key>UILaunchImageOrientation</key>
+			<string>Portrait</string>
+			<key>UILaunchImageSize</key>
+			<string>{320, 480}</string>
+			<key>UILaunchImageMinimumOSVersion</key>
+			<string>7.0</string>
+		</dict>
+		<dict>
+			<key>UILaunchImageName</key>
+			<string>Default-568h</string>
+			<key>UILaunchImageOrientation</key>
+			<string>Portrait</string>
+			<key>UILaunchImageSize</key>
+			<string>{320, 568}</string>
+			<key>UILaunchImageMinimumOSVersion</key>
+			<string>7.0</string>
+		</dict>
+	</array>
+	<key>UILaunchImages~ipad</key>
+	<array>
+		<dict>
+			<key>UILaunchImageName</key>
+			<string>Default-Portrait</string>
+			<key>UILaunchImageOrientation</key>
+			<string>Portrait</string>
+			<key>UILaunchImageSize</key>
+			<string>{768, 1024}</string>
+			<key>UILaunchImageMinimumOSVersion</key>
+			<string>7.0</string>
+		</dict>
+		<dict>
+			<key>UILaunchImageName</key>
+			<string>Default-Landscape</string>
+			<key>UILaunchImageOrientation</key>
+			<string>Landscape</string>
+			<key>UILaunchImageSize</key>
+			<string>{768, 1024}</string>
+			<key>UILaunchImageMinimumOSVersion</key>
+			<string>7.0</string>
+		</dict>
+	</array>
 </dict>
 </plist>

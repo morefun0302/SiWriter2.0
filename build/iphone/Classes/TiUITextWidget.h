@@ -40,6 +40,7 @@
 -(void)setSelectionFrom:(id)start to:(id)end;
 #pragma mark - SiWriterPro Internal Use Only
 -(void)updateKeyboardStatus;
+-(NSDictionary*)selectedRange;
 @end
 
 #endif

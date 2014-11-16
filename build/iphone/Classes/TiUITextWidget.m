@@ -152,20 +152,11 @@
 
 -(BOOL)resignFirstResponder
 {
-	if (![textWidgetView isFirstResponder])
-	{
-		return NO;
-	}
 	return [[self textWidgetView] resignFirstResponder];
 }
 
 -(BOOL)becomeFirstResponder
 {
-	if ([textWidgetView isFirstResponder])
-	{
-		return NO;
-	}
-	
 	return [[self textWidgetView] becomeFirstResponder];
 }
 
@@ -226,6 +217,25 @@
 	[self makeRootViewFirstResponder];
 }
 
+-(NSDictionary*)selectedRange
+{
+    id<UITextInput> textView = (id<UITextInput>)[self textWidgetView];
+    if ([textView conformsToProtocol:@protocol(UITextInput)]) {
+        UITextRange* theRange = [textView selectedTextRange];
+        if (theRange != nil) {
+            UITextPosition *beginning = textView.beginningOfDocument;
+            UITextPosition* start = theRange.start;
+            UITextPosition* end = theRange.end;
+            NSInteger startPos = [textView offsetFromPosition:beginning toPosition:start];
+            NSInteger endPos = [textView offsetFromPosition:beginning toPosition:end];
+            NSInteger length = endPos - startPos;
+            
+            return [NSDictionary dictionaryWithObjectsAndKeys:NUMINT(startPos),@"location",NUMINT(length),@"length",nil];
+        }
+    }
+    return nil;
+}
+
 -(void)setSelectionFrom:(id)start to:(id)end
 {
     id<UITextInput> textView = (id<UITextInput>)[self textWidgetView];
@@ -242,6 +252,7 @@
         DebugLog(@"TextWidget does not conform with UITextInput protocol. Ignore");
     }
 }
+
 
 #pragma mark - SiWriterPro Internal Use Only
 -(void)updateKeyboardStatus

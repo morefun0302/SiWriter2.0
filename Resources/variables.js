@@ -293,7 +293,7 @@ var smallHelpimages = Ti.UI.createImageView({//help screen on win 1
 var top_view = Ti.UI.createView({/* email window */
 	height : 25,
 	width : 310,
-	borderRadius : 15,
+	borderRadius : 5,
 	keyboardType : Ti.UI.KEYBOARD_EMAIL,
 	returnKeyType : Ti.UI.RETURNKEY_DEFAULT,
 	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -310,14 +310,12 @@ var aTrailer = Ti.UI.createTextField({/* preview mini text window */
 	left : 190,
 	top : 495,
 	width : 290,
-	borderRadius : 10,
-	backgroundColor : '#ffffff',
-	opacity : '0.7',
-	paddingTop : 8,
-	paddingBottom : 4,
-	paddingLeft : 6,
-	paddingRight : 6,
+	height : 25,
+	borderRadius : 5,
 	editable : false,
+	paddingLeft : 30,
+	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	backgroundImage : 'images/Small_Screen.png',
 });
 
 aTrailer.value = "Mini view of main text area";
@@ -654,6 +652,7 @@ Latest_news.removeEventListener("click", function() {});
 
 Latest_news.addEventListener("click", function() {
 	Ti.API.info("Opening More help");
+		checkInternet();
 	Ti.Platform.openURL("http://www.siwriter.co.uk/latest_news");
 });
 
@@ -667,6 +666,7 @@ CyKey.removeEventListener("click", function() {});
 
 CyKey.addEventListener("click", function() {
 	Ti.API.info("Opening Cykey");
+		checkInternet();
 	Ti.Platform.openURL("https://sites.google.com/site/cykeybellaire/cykey-home-page");
 });
 
@@ -680,6 +680,8 @@ SiWriter.removeEventListener("click", function() {});
 
 SiWriter.addEventListener("click", function() {
 	Ti.API.info("Opening SiWriter");
+		checkInternet();
+
 	Ti.Platform.openURL("http://www.siwriter.co.uk/");
 });
 
@@ -693,6 +695,7 @@ Facebook.removeEventListener("click", function() {});
 
 Facebook.addEventListener("click", function() {
 	Ti.API.info("Opening Facebook");
+	checkInternet();
 	Ti.Platform.openURL("https://www.facebook.com/SiWriter");
 });
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>SiWriterPro1.5.2</name>
+	<name>SiWriterPro1.5.9.7</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -17,6 +17,7 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>com.aptana.projects.webnature</nature>
 		<nature>com.appcelerator.titanium.mobile.nature</nature>
 	</natures>
 </projectDescription>

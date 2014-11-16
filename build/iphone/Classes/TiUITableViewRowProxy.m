@@ -583,20 +583,6 @@ TiProxy * DeepScanForProxyOfViewContainingPoint(UIView * targetView, CGPoint poi
 	{
 		UIView *contentView = cell.contentView;
 		CGRect rect = [contentView bounds];
-        CGSize cellSize = [(TiUITableViewCell*)cell computeCellSize];
-		CGFloat rowWidth = cellSize.width;
-		CGFloat rowHeight = cellSize.height;
-
-		if (rowHeight < rect.size.height || rowWidth < rect.size.width)
-		{
-			rect.size.height = rowHeight;
-			rect.size.width = rowWidth;
-			contentView.frame = rect;
-		}
-        else if (CGSizeEqualToSize(rect.size, CGSizeZero)) {
-            rect.size = CGSizeMake(rowWidth, rowHeight);
-            [contentView setFrame:rect];
-        }
 		rect.origin = CGPointZero;
 		if (self.reusable || (rowContainerView == nil)) {
 			if (self.reusable) {
@@ -665,9 +651,25 @@ TiProxy * DeepScanForProxyOfViewContainingPoint(UIView * targetView, CGPoint poi
 	configuredChildren = YES;
 }
 
+-(void)configureTintColor:(UITableViewCell*)cell
+{
+    if ([TiUtils isIOS7OrGreater]) {
+        UIColor* theTint = nil;
+        id theColor = [self valueForUndefinedKey:@"tintColor"];
+        if (theColor != nil) {
+            theTint = [[TiUtils colorValue:theColor] color];
+        }
+        if (theTint == nil) {
+            theTint = [[table tableView] tintColor];
+        }
+        [cell performSelector:@selector(setTintColor:) withObject:theTint];
+    }
+}
+
 -(void)initializeTableViewCell:(UITableViewCell*)cell
 {
 	modifyingRow = YES;
+	[self configureTintColor:cell];
 	[self configureTitle:cell];
 	[self configureSelectionStyle:cell];
 	[self configureLeftSide:cell];
@@ -690,12 +692,10 @@ TiProxy * DeepScanForProxyOfViewContainingPoint(UIView * targetView, CGPoint poi
 // TODO: Add child locking methods for whenever we have to touch children outside TiViewProxy
 -(void)willShow
 {
-	pthread_rwlock_rdlock(&childrenLock);
     NSArray* subproxies = [self children];
 	for (TiViewProxy* child in subproxies) {
 		[child setParentVisible:YES];
 	}
-	pthread_rwlock_unlock(&childrenLock);
 }
 
 -(void)triggerAttach
@@ -733,6 +733,7 @@ TiProxy * DeepScanForProxyOfViewContainingPoint(UIView * targetView, CGPoint poi
 {
 	attaching = YES;
 	[super windowWillOpen];
+	[self setParentVisible:YES];
 	attaching = NO;
 }
 
@@ -890,7 +891,7 @@ TiProxy * DeepScanForProxyOfViewContainingPoint(UIView * targetView, CGPoint poi
 					@"title", @"accessibilityLabel", @"backgroundImage",
 					@"leftImage",@"hasDetail",@"hasCheck",@"hasChild",	
 					@"indentionLevel",@"selectionStyle",@"color",@"selectedColor",
-					@"height",@"width",@"backgroundColor",@"rightImage",
+					@"height",@"width",@"backgroundColor",@"rightImage",@"tintColor",
 					nil];
 	}
 	
@@ -916,9 +917,11 @@ TiProxy * DeepScanForProxyOfViewContainingPoint(UIView * targetView, CGPoint poi
                 [callbackCell setNeedsDisplay];
             } else if ([key isEqualToString:@"backgroundColor"]) {
                 [callbackCell setBackgroundColor:[[TiUtils colorValue:newValue] color]];
-                [callbackCell setNeedsDisplay];
+                [self triggerRowUpdate];
             } else if ([key isEqualToString:@"accessibilityLabel"]){
                 callbackCell.accessibilityLabel = [TiUtils stringValue:newValue];
+            } else if ([key isEqualToString:@"tintColor"]){
+                [self configureTintColor:callbackCell];
             }
         }, NO);
     }

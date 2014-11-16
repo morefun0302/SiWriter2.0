@@ -4,6 +4,13 @@
 /////////////FUNCTIONS////////////////
 /////////////FUNCTIONS////////////////
 /////////////FUNCTIONS////////////////
+function checkInternet() {
+	if (!Titanium.Network.getOnline( ) ){alert("You are not online");
+	var dialog = Ti.UI.createAlertDialog({
+    title: 'Sorry'
+  }).show();	
+}	
+}
 
 function recover_settings() {
 
@@ -182,16 +189,6 @@ function landscape() {
 	buttonvariablesLandscape();
 }
 
-function copyTextToClipboard() {
-	//if(txtViewDesc.value==="_") {
-	if (contentTyped == "_") {
-
-		alert("Nothing to copy");
-	} else {
-		Ti.UI.Clipboard.setText(contentTyped);
-	}
-}
-
 function saveCurrentText() {
 	saved_file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'SiWriter ' + new Date);
 	saved_file.write(save);
@@ -203,16 +200,16 @@ function saveBackgroundImage(image) {
 
 	if (orientation == "portrait") {
 		var BG_Image_Message = Titanium.UI.createAlertDialog({
-			title : 'Background image'
+			title : 'Portrait background image'
 		});
 		BG_Image_Message.setMessage('Portrait background updated.');
 	}
 
 	if (orientation == "landscape") {
 		var BG_Image_Message = Titanium.UI.createAlertDialog({
-			title : 'Background image'
+			title : 'Landscape background image'
 		});
-		BG_Image_Message.setMessage('Background image updated.');
+		BG_Image_Message.setMessage('Landscape background updated.');
 	}
 
 	if (writeFile.exists()) {
@@ -239,12 +236,12 @@ function pasteTextFromClipboard() {
 }
 
 function copyTextToClipboard() {
-	//if(txtViewDesc.value==="_") {
-	if (contentTyped == "_") {
+	if(txtViewDesc.value =="_") {
+	//if (contentTyped == "_") {
 
 		alert("Nothing to copy");
 	} else {
-		Ti.UI.Clipboard.setText(contentTyped);
+		Ti.UI.Clipboard.setText(txtViewDesc.value.slice(0, -1));
 	}
 }
 
@@ -325,6 +322,7 @@ function updateSettings() {
 }
 
 function openWebsiteButtonAction() {
+	checkInternet();
 	Ti.Platform.openURL("http://SiWriter.co.uk");
 }
 
