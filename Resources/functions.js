@@ -11,6 +11,10 @@ function checkInternet() {
   }).show();	
 }	
 }
+function dovars(allVariables) {
+	allVariables=allVariables+"\r"+(props[c] + " = " + value);
+	return allVariables;
+}
 
 function recover_settings() {
 
@@ -287,11 +291,17 @@ function timeStamp() {
 }
 
 function displayVariables() {
-
-
 contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + allVariables + "\r\r";
 	txtViewDesc.value = contentTyped+ "END\r\r";
+	displayVariables2("Simon was here");
 }
+
+function displayVariables2(Variable) {
+	contentTyped = txtViewDesc.value;
+	contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + Variable + "\r\r";
+	txtViewDesc.value = contentTyped+ "END\r\r";
+}
+
 
 function getDate()
 {
@@ -366,21 +376,21 @@ function get_MasterSettings() {
 			aTextField.value = value;
 		}
 
-		// if (props[c] == "Height") {
-		// var Height = value;
-		// }
-		//
-		// if (props[c] == "Width") {
-		// var Width = value;
-		// }
-		//
-		// if (props[c] == "pos") {
-		// var pos = value;
-		// }
-		//
-		// if (props[c] == "Gap") {
-		// var Gap = value;
-		// }
+		 if (props[c] == "Height") {
+		 var Height = value;
+		 }
+		
+		 if (props[c] == "Width") {
+		 var Width = value;
+		 }
+		
+		 if (props[c] == "pos") {
+		 var pos = value;
+		 }
+		
+		 if (props[c] == "Gap") {
+		 var Gap = value;
+		 }
 
 		if (props[c] == "FPPDisplay") {
 			var FPPDisplay = value;
