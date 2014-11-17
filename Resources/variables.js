@@ -50,6 +50,7 @@ var whole_sentance = "";
 var sentance = "";
 var letter = "";
 var allVariables="START";
+var HeightP=0;
 Titanium.App.Properties.setString('locale', language);
 Titanium.App.language = language;
 Ti.API.info(props);

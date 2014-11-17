@@ -52,8 +52,9 @@ webview.addEventListener('beforeload', function(e) {
 //alert("here?");
 recover_settings();
 //("and here?");
-    Ti.App.addEventListener("app:HeightP", function(HeightP) {
-        alert("HeightP:" + HeightP);
+    Ti.App.addEventListener("app:HeightPtrigger", function(HeightP) {
+        alert("HeightP from event:" + HeightP.HeightP);
+        Titanium.App.Properties.setString("HeightP", HeightP.value);
     });
 Ti.App.removeEventListener('Handedness', function(e) {
 });

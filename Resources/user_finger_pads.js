@@ -225,7 +225,10 @@ function initialise() {
 		//appContainer.style.padding = "70px 0px 0px 0px";
 
 		UpDwn = UpDwnP;
-		Height = HeightP;Ti.App.fireEvent("app:HeightP",HeightP);
+		Height = HeightP;
+		//alert("fp file has HeightP ="+HeightP);
+		Ti.App.fireEvent("app:HeightPtrigger",HeightP);
+		Ti.App.fireEvent('app:HeightPtrigger', {HeightP: HeightP});
 		Gap = GapP;
 		Width = WidthP;
 		LRpos = LRposP;
