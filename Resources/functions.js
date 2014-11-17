@@ -93,7 +93,7 @@ function recover_settings() {
 
 		if (props[c] == "HeightL") {
 			var HeightL = value;
-			alert("HeightL=" + HeightL);
+			//alert("HeightL=" + HeightL);
 		}
 
 		if (props[c] == "WidthP") {

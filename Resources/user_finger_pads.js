@@ -10,8 +10,6 @@ var GapP = 0;
 var LRposP = 0;
 var TwistP = 0;
 var UpDwnP = 0;
-
-var HeightL = 0;
 var WidthL = 0;
 var GapL = 0;
 var LRposL = 0;
@@ -533,7 +531,7 @@ function adjust_pads() {
 		} else {
 			HeightL += 4;
 			Height = HeightL;
-			//Ti.App.fireEvent('app:HeightLtrigger', {HeightL: HeightL});
+			Ti.App.fireEvent('app:HeightLtrigger', {HeightL: HeightL});
 
 		};
 		do_pad_height();
@@ -548,7 +546,7 @@ function adjust_pads() {
 		} else {
 			HeightL -= 4;
 			Height = HeightL;
-			//Ti.App.fireEvent('app:HeightLtrigger', {HeightL: HeightL});
+			Ti.App.fireEvent('app:HeightLtrigger', {HeightL: HeightL});
 		};
 		do_pad_height();
 	};
