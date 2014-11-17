@@ -18,7 +18,6 @@ var LRposL = 0;
 var LRposP = 0;
 var TwistL = 0;
 var UpDwnL = 0;
-
 var Height = 0;
 var Width = 0;
 var Gap = 0;
@@ -28,7 +27,7 @@ var UpDwn = 0;
 var LRHL = 1;
 var LRHP = 1;
 var LRH = 1;
-alert(HeightP);
+//var HeightP=-10;
 if (isNaN(parseFloat(HeightP))) {HeightP = -10;defaults();}
 if (typeof HeightP === "undefined") {HeightP=-10;}
 if (typeof HeightP == "string") {HeightP= parseFloat(HeightP);}//alert("was a string "+HeightP);}
@@ -48,67 +47,67 @@ initialise();
 do_update();
 
 Ti.App.addEventListener('From_Settings_Twist', function(e) {
-	Ti.API.info("Twist  sent by app=" + e.Twist);
+	// Ti.API.info("Twist  sent by app=" + e.Twist);
 	Twist = e.Twist;
 	alert("got one");
 });
 
 Ti.App.addEventListener('From_Settings_LRposP', function(e) {
-	Ti.API.info("LRposP  sent by app=" + e.LRposP);
+	// Ti.API.info("LRposP  sent by app=" + e.LRposP);
 	LRposP = e.LRposP;
 });
 
 Ti.App.addEventListener('From_Settings_LRposL', function(e) {
-	Ti.API.info("LRposL  sent by app=" + e.LRposL);
+	// Ti.API.info("LRposL  sent by app=" + e.LRposL);
 	LRposL = e.LRposL;
 });
 Ti.App.addEventListener('From_Settings_UpDwnL', function(e) {
-	Ti.API.info("UpDwnL sent by app =" + e.UpDwnL);
+	// Ti.API.info("UpDwnL sent by app =" + e.UpDwnL);
 	UpDwnL = e.UpDwnL;
 });
 
 Ti.App.addEventListener('From_Settings_UpDwnP', function(e) {
-	Ti.API.info("UpDwnP sent by app =" + e.UpDwnP);
+	// Ti.API.info("UpDwnP sent by app =" + e.UpDwnP);
 	UpDwnP = e.UpDwnP;
 });
 
 Ti.App.addEventListener('From_Settings_HeightP', function(e) {
-	Ti.API.info("HeightP sent by app =" + e.HeightP);
+	// Ti.API.info("HeightP sent by app =" + e.HeightP);
 
 	HeightP = e.HeightP;
 });
 
 Ti.App.addEventListener('From_Settings_HeightL', function(e) {
-	Ti.API.info("HeightL sent by app =" + e.HeightL);
+	// Ti.API.info("HeightL sent by app =" + e.HeightL);
 
 	HeightL = e.HeightL;
 });
 
 Ti.App.addEventListener('From_Settings_WidthP', function(e) {
-	Ti.API.info("WidthP  sent by app=" + e.WidthP);
+	// Ti.API.info("WidthP  sent by app=" + e.WidthP);
 	WidthP = e.WidthP;
 });
 Ti.App.addEventListener('From_Settings_WidthL', function(e) {
-	Ti.API.info("WidthL  sent by app=" + e.WidthL);
+	// Ti.API.info("WidthL  sent by app=" + e.WidthL);
 	WidthL = e.WidthL;
 });
 
 Ti.App.addEventListener('From_Settings_GapP', function(e) {
-	Ti.API.info("GapP  sent by app=" + e.GapP);
+	// Ti.API.info("GapP  sent by app=" + e.GapP);
 	GapP = e.GapP;
 });
 Ti.App.addEventListener('From_Settings_GapL', function(e) {
-	Ti.API.info("GapL  sent by app=" + e.GapL);
+	// Ti.API.info("GapL  sent by app=" + e.GapL);
 	GapL = e.GapL;
 });
 
 Ti.App.addEventListener('From_Settings_FPPDisplay', function(e) {
-	Ti.API.info("FPPDisplay  sent by app=" + e.FPPDisplay);
+	// Ti.API.info("FPPDisplay  sent by app=" + e.FPPDisplay);
 	FPPDisplay = e.FPPDisplay;
 });
 
 Ti.App.addEventListener('From_Settings_FPhelp', function(e) {
-	Ti.API.info("FPhelp  sent by app=" + e.FPhelp);
+	// Ti.API.info("FPhelp  sent by app=" + e.FPhelp);
 	FPhelp = e.FPhelp;
 });
 
@@ -116,7 +115,7 @@ Ti.App.addEventListener('From_Settings_FPhelp', function(e) {
 
 function defaults() {//alert(HeightP);
 if (HeightP <0) {
-	Ti.API.info("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  HeightP at default func=" + HeightP);
+	// Ti.API.info("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  HeightP at default func=" + HeightP);
 	HeightP = 190;
 	WidthP = 98;
 	GapP = -2;
@@ -147,7 +146,7 @@ $(document).ready(function() {
 adjust_pads();
 //;
 
-Ti.API.info("LRH !!!!!!!!!!!!!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" + LRH);
+// Ti.API.info("LRH !!!!!!!!!!!!!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" + LRH);
 
 do_pad_fphelp(FPhelp);
 
@@ -157,7 +156,7 @@ Ti.App.removeEventListener('Do_help_lettersSwitch', function() {
 Ti.App.addEventListener('sizer_switch_change', function(e) {
 
 	Hide = !e.slider;
-	Ti.API.info("slider" + e.slider);
+	// Ti.API.info("slider" + e.slider);
 	if (Hide) {
 		sizers.style.display = "none";
 	} else {
@@ -168,7 +167,7 @@ Ti.App.addEventListener('sizer_switch_change', function(e) {
 		// sizerholder.style.margin = "0px 0px 0px 81px";
 		// }
 	}
-	Ti.API.info("@!$ Hide= " + Hide);
+	// Ti.API.info("@!$ Hide= " + Hide);
 });
 
 ///////////////// FROM APP///////////////////////////////////////////
@@ -176,8 +175,8 @@ Ti.App.removeEventListener('initialise', function(e) {
 });
 
 Ti.App.addEventListener('initialise', function(e) {
-	//Ti.API.info("initialise recieved !!!!!!!!!!!!!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-	Ti.API.info("initialise recieved  LRH !!!!!!!!!!!!!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" + LRH);
+	//// Ti.API.info("initialise recieved !!!!!!!!!!!!!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+	// Ti.API.info("initialise recieved  LRH !!!!!!!!!!!!!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" + LRH);
 
 	//recover_settings -For Next ENDSrecover_settings -For Next ENDSalert("start app"+start);
 	//initialise();
@@ -186,11 +185,11 @@ Ti.App.addEventListener('initialise', function(e) {
 Ti.App.removeEventListener("app:orientation", function(e) {
 });
 Ti.App.addEventListener("app:orientation", function(e) {
-	Ti.API.info("!!!!!!!!app:orientation!!!!!!!!!");
+	// Ti.API.info("!!!!!!!!app:orientation!!!!!!!!!");
 	HTMLorientation = e.orientation;
 	initialise();
 	// if (LRH == 1) {
-	// Ti.API.info("ufp line 264 LRH="+LRH);
+	// // Ti.API.info("ufp line 264 LRH="+LRH);
 	// do_righthanded(1);
 	// } else {
 	// do_lefthanded(-1);
@@ -200,7 +199,7 @@ Ti.App.addEventListener("app:orientation", function(e) {
 
 function initialise() {
 
-	Ti.API.info("initialise heard app INITIALLY say " + HTMLorientation + " to webview!!");
+	// Ti.API.info("initialise heard app INITIALLY say " + HTMLorientation + " to webview!!");
 	globalArrayL = [{
 		HeightL : HeightL
 	}, {
@@ -250,29 +249,29 @@ function initialise() {
 		Twist - TwistL;
 
 	}
-	//Ti.API.info("orientation_offset  CALLED " + orientation);
-	//Ti.API.info("UpDwn = " + UpDwn + " UdOffset= " + UdOffset + " UdOffsetP =" + UdOffsetP + " UdOffsetL= " + UdOffsetL);
+	//// Ti.API.info("orientation_offset  CALLED " + orientation);
+	//// Ti.API.info("UpDwn = " + UpDwn + " UdOffset= " + UdOffset + " UdOffsetP =" + UdOffsetP + " UdOffsetL= " + UdOffsetL);
 	//	chordKeyboard_id.style.margin = UdOffset + UpDwn + "px 0px 0px 0px";
 	//	webview.reload();
 	//alert("orientation="+orientation)
 
-	Ti.API.info('!!!!!!!!!globalArrayP!!!!!!!!!!!!!!!!');
-	Ti.API.info(globalArrayP[0]);
-	Ti.API.info(globalArrayP[1]);
-	Ti.API.info(globalArrayP[2]);
-	Ti.API.info(globalArrayP[3]);
-	Ti.API.info(globalArrayP[4]);
-	Ti.API.info(globalArrayP[5]);
+	// Ti.API.info('!!!!!!!!!globalArrayP!!!!!!!!!!!!!!!!');
+	// Ti.API.info(globalArrayP[0]);
+	// Ti.API.info(globalArrayP[1]);
+	// Ti.API.info(globalArrayP[2]);
+	// Ti.API.info(globalArrayP[3]);
+	// Ti.API.info(globalArrayP[4]);
+	// Ti.API.info(globalArrayP[5]);
 
-	Ti.API.info('!!!!!!!!globalArrayL!!!!!!!!!!!!!!');
-	Ti.API.info(globalArrayL[0]);
-	Ti.API.info(globalArrayL[1]);
-	Ti.API.info(globalArrayL[2]);
-	Ti.API.info(globalArrayL[3]);
-	Ti.API.info(globalArrayL[4]);
-	Ti.API.info(globalArrayL[5]);
+	// Ti.API.info('!!!!!!!!globalArrayL!!!!!!!!!!!!!!');
+	// Ti.API.info(globalArrayL[0]);
+	// Ti.API.info(globalArrayL[1]);
+	// Ti.API.info(globalArrayL[2]);
+	// Ti.API.info(globalArrayL[3]);
+	// Ti.API.info(globalArrayL[4]);
+	// Ti.API.info(globalArrayL[5]);
 
-	Ti.API.info("after update HTML orientation = " + HTMLorientation);
+	// Ti.API.info("after update HTML orientation = " + HTMLorientation);
 
 }
 
@@ -328,7 +327,7 @@ function do_update() {
 
 	}
 
-	Ti.API.info("update done");
+	// Ti.API.info("update done");
 	//////////////
 
 };
@@ -344,7 +343,7 @@ Ti.App.removeEventListener('help_lettersSwitch_change', function(e) {
 
 Ti.App.addEventListener('help_lettersSwitch_change', function(e) {
 	FPhelp = e.FPhelp;
-	Ti.API.info('SW- Switch FPhelp: ' + FPhelp);
+	// Ti.API.info('SW- Switch FPhelp: ' + FPhelp);
 	do_pad_fphelp(FPhelp);
 });
 
@@ -368,7 +367,7 @@ function adjust_pads() {
 		Ti.App.fireEvent('sizer_switched_off', {
 			slider : false
 		});
-		Ti.API.info("sizer_switched_off triggered");
+		// Ti.API.info("sizer_switched_off triggered");
 
 	};
 
@@ -391,7 +390,7 @@ function adjust_pads() {
 			do_update();
 		};
 
-		Ti.API.info("pad data rest");
+		// Ti.API.info("pad data rest");
 
 	};
 
@@ -430,7 +429,7 @@ function adjust_pads() {
 			twist(Twist);
 		}
 
-		Ti.API.info("finger pads.js is : Twist = " + Twist + " TwistP = " + TwistP + " TwistL = " + TwistL);
+		// Ti.API.info("finger pads.js is : Twist = " + Twist + " TwistP = " + TwistP + " TwistL = " + TwistL);
 	};
 
 	did("DamountT").onTouchDown = function(info) {
@@ -444,7 +443,7 @@ function adjust_pads() {
 			Twist = TwistL;
 			twist(Twist);
 		}
-		Ti.API.info("finger pads.js is : Twist = " + Twist + " TwistP = " + TwistP + " TwistL = " + TwistL);
+		// Ti.API.info("finger pads.js is : Twist = " + Twist + " TwistP = " + TwistP + " TwistL = " + TwistL);
 
 	};
 
@@ -462,9 +461,9 @@ function adjust_pads() {
 			LRposL += 4;
 			LRpos = LRposL + LRHloffset;
 		};
-		Ti.API.info(orientation + "+++++++++++++++++++LRposL =" + LRposL);
+		// Ti.API.info(orientation + "+++++++++++++++++++LRposL =" + LRposL);
 		do_pad_LRpos();
-		Ti.API.info(orientation + "+++++++++++++++++++LRposL =" + LRposL);
+		// Ti.API.info(orientation + "+++++++++++++++++++LRposL =" + LRposL);
 	};
 
 	did("DamountP").onTouchDown = function(info) {
@@ -475,10 +474,10 @@ function adjust_pads() {
 			LRposL -= 4;
 			LRpos = LRposL + LRHloffset;
 		};
-		Ti.API.info(orientation + "--------------------LRposL =" + LRposL);
+		// Ti.API.info(orientation + "--------------------LRposL =" + LRposL);
 
 		do_pad_LRpos();
-		Ti.API.info(orientation + "--------------------LRposL =" + LRposL);
+		// Ti.API.info(orientation + "--------------------LRposL =" + LRposL);
 
 	};
 
@@ -611,12 +610,12 @@ function adjust_pads() {
 	};
 
 	///////////////////////////////////////////////////////
-	Ti.API.info("RESET at end of Pads update//////////////////" + reset);
+	// Ti.API.info("RESET at end of Pads update//////////////////" + reset);
 
 }
 
 function do_righthanded(LRH) {
-	Ti.API.info("ufp line 424 do_righthanded called. LRH=" + LRH);
+	// Ti.API.info("ufp line 424 do_righthanded called. LRH=" + LRH);
 	LRHpoffset = 0;
 	LRHloffset = 0;
 	// Ti.App.fireEvent('Handedness', {
@@ -644,8 +643,8 @@ function do_righthanded(LRH) {
 	}
 	document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + TwistL + "deg)");
 	flip_helper_text();
-	Ti.API.info("Handedness in UFP.js 429 is : LRHP = " + LRHP + " LRHL = " + LRHL + " LRH = " + LRH);
-	Ti.API.info("RIGHT HANDED Handedness in UFP.js 430 is : LRHloffset = " + LRHloffset + " LRHpoffset = " + LRHpoffset);
+	// Ti.API.info("Handedness in UFP.js 429 is : LRHP = " + LRHP + " LRHL = " + LRHL + " LRH = " + LRH);
+	// Ti.API.info("RIGHT HANDED Handedness in UFP.js 430 is : LRHloffset = " + LRHloffset + " LRHpoffset = " + LRHpoffset);
 	do_save_pad_state_lrh(LRH);
 	//do_update();
 };
@@ -653,9 +652,9 @@ function do_righthanded(LRH) {
 function do_lefthanded(LRH) {
 	LRHpoffset = -196;
 	LRHloffset = -450;
-	Ti.API.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ufp line 614 do_lefthanded called. LRH=" + LRH);
-	Ti.API.info("ufp line 615 HTMLorientation = " + HTMLorientation);
-	Ti.API.info("ufp line 615 orientation = " + orientation);
+	// Ti.API.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ufp line 614 do_lefthanded called. LRH=" + LRH);
+	// Ti.API.info("ufp line 615 HTMLorientation = " + HTMLorientation);
+	// Ti.API.info("ufp line 615 orientation = " + orientation);
 
 	// Ti.App.fireEvent('Handedness', {
 	// LRH : -1
@@ -673,13 +672,13 @@ function do_lefthanded(LRH) {
 		//alert("HTMLorientation = "+HTMLorientation);
 		//LEFT handed Portrait
 		LRH = LRHP;
-		Ti.API.info("LEFT handed Portrait UFP.js 630 is : LRHP = " + LRHP + " LRHL = " + LRHL + " LRH = " + LRH);
-		Ti.API.info("LEFT handed Portrait in UFP.js 631 is : LRHloffset = " + LRHloffset + " LRHpoffset = " + LRHpoffset);
+		// Ti.API.info("LEFT handed Portrait UFP.js 630 is : LRHP = " + LRHP + " LRHL = " + LRHL + " LRH = " + LRH);
+		// Ti.API.info("LEFT handed Portrait in UFP.js 631 is : LRHloffset = " + LRHloffset + " LRHpoffset = " + LRHpoffset);
 		document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + TwistP + "deg)");
 	} else {
 		//HTMLorientation="landscape";
 		//alert("LEFT handed Landscape");
-		Ti.API.info("LEFT handed Landscape in UFP.js 634 is : LRHloffset = " + LRHloffset + " LRHpoffset = " + LRHpoffset);
+		// Ti.API.info("LEFT handed Landscape in UFP.js 634 is : LRHloffset = " + LRHloffset + " LRHpoffset = " + LRHpoffset);
 		//alert("2");
 		LRHL = -1;
 		//LEFT handed Landscape
@@ -696,8 +695,8 @@ function do_lefthanded(LRH) {
 	document.getElementById("h7").setAttribute("style", "-webkit-transform:scale(-1,1);");
 	document.getElementById("hsymbols").setAttribute("style", "-webkit-transform:scale(-1,1);");
 	document.getElementById("hunums").setAttribute("style", "-webkit-transform:scale(-1,1);");
-	Ti.API.info("Handedness in UFP.js 648 is : LRHP = " + LRHP + " LRHL = " + LRHL + " LRH = " + LRH);
-	Ti.API.info("LEFT HANDED Handedness in UFP.js 649 is : LRHloffset = " + LRHloffset + " LRHpoffset = " + LRHpoffset);
+	// Ti.API.info("Handedness in UFP.js 648 is : LRHP = " + LRHP + " LRHL = " + LRHL + " LRH = " + LRH);
+	// Ti.API.info("LEFT HANDED Handedness in UFP.js 649 is : LRHloffset = " + LRHloffset + " LRHpoffset = " + LRHpoffset);
 
 	do_save_pad_state_lrh(LRH);
 	//do_update();
@@ -732,7 +731,7 @@ function do_pad_fphelp(FPhelp) {
 		hunums.style.display = "block";
 	}
 
-	Ti.API.info("ufp line 464 do_pad_fphelp:-" + FPhelp);
+	// Ti.API.info("ufp line 464 do_pad_fphelp:-" + FPhelp);
 	do_save_pad_state_fph(FPhelp);
 				if ((FPhelp) == true){
 					//alert("False ? FPhelp ="+FPhelp);
@@ -756,49 +755,49 @@ function do_save_pad_state_fph(FPhelp) {
 	Ti.App.fireEvent('FPhelp', {
 		FPhelp : FPhelp
 	});
-	Ti.API.info("fphelp variable sent as fired event by User_FingerPads.js  " + FPhelp);
+	// Ti.API.info("fphelp variable sent as fired event by User_FingerPads.js  " + FPhelp);
 }
 
 function do_save_pad_state_hP(HeightP) {
 	Ti.App.fireEvent('HeightP', {
 		HeightP : HeightP
 	});
-	Ti.API.info("heightP variable sent as fired event by User_FingerPads.js  " + HeightP);
+	// Ti.API.info("heightP variable sent as fired event by User_FingerPads.js  " + HeightP);
 }
 
 function do_save_pad_state_hL(HeightL) {
 	Ti.App.fireEvent('HeightL', {
 		HeightL : HeightL
 	});
-	Ti.API.info("HeightL variable sent as fired event by User_FingerPads.js  " + HeightL);
+	// Ti.API.info("HeightL variable sent as fired event by User_FingerPads.js  " + HeightL);
 }
 
 function do_save_pad_state_wP(WidthP) {
 	Ti.App.fireEvent('WidthP', {
 		WidthP : WidthP
 	});
-	Ti.API.info("widthp variable sent as fired event by User_FingerPads.js  " + WidthP);
+	// Ti.API.info("widthp variable sent as fired event by User_FingerPads.js  " + WidthP);
 }
 
 function do_save_pad_state_wL(WidthL) {
 	Ti.App.fireEvent('WidthL', {
 		WidthL : WidthL
 	});
-	Ti.API.info("widthL variable sent as fired event by User_FingerPads.js  " + WidthL);
+	// Ti.API.info("widthL variable sent as fired event by User_FingerPads.js  " + WidthL);
 }
 
 function do_save_pad_state_gP(GapP) {
 	Ti.App.fireEvent('GapP', {
 		GapP : GapP
 	});
-	Ti.API.info("GapP variable sent as fired event by User_FingerPads.js  " + GapP);
+	// Ti.API.info("GapP variable sent as fired event by User_FingerPads.js  " + GapP);
 }
 
 function do_save_pad_state_gL(GapL) {
 	Ti.App.fireEvent('GapL', {
 		GapL : GapL
 	});
-	Ti.API.info("GapL variable sent as fired event by User_FingerPads.js  " + GapL);
+	// Ti.API.info("GapL variable sent as fired event by User_FingerPads.js  " + GapL);
 }
 
 function do_save_pad_state_fpp(FPPDisplay) {
@@ -811,14 +810,14 @@ function do_save_pad_state_pP(LRposP) {
 	Ti.App.fireEvent('LRposP', {
 		LRposP : LRpos
 	});
-	Ti.API.info("LRposP variable sent as fired event by User_FingerPads.js  " + LRposP);
+	// Ti.API.info("LRposP variable sent as fired event by User_FingerPads.js  " + LRposP);
 }
 
 function do_save_pad_state_pL(LRposL) {
 	Ti.App.fireEvent('LRposL', {
 		LRposL : LRposL
 	});
-	Ti.API.info("LRposL variable sent as fired event by User_FingerPads.js  " + LRposL);
+	// Ti.API.info("LRposL variable sent as fired event by User_FingerPads.js  " + LRposL);
 }
 
 function do_save_pad_state_lrh(LRH) {
@@ -827,34 +826,34 @@ function do_save_pad_state_lrh(LRH) {
 // Ti.App.fireEvent('Handedness', {
 // LRH : LRH
 // });
-// Ti.API.info("LRH SEEN AT BUTTONS fired event by User_FingerPads.js  " + LRH);
+// // Ti.API.info("LRH SEEN AT BUTTONS fired event by User_FingerPads.js  " + LRH);
 // }
 
 function do_save_pad_state_t(Twist) {
 	Ti.App.fireEvent('Twist', {
 		Twist : Twist
 	});
-	Ti.API.info("Twist variable sent as fired event by User_FingerPads.js  " + Twist);
+	// Ti.API.info("Twist variable sent as fired event by User_FingerPads.js  " + Twist);
 }
 
 function do_save_pad_state_uP(UpDwnP) {
 	Ti.App.fireEvent('UpDwnP', {
 		UpDwnP : UpDwnP
 	});
-	Ti.API.info("UpDwnP variable sent as fired event by User_FingerPads.js  " + UpDwnP);
+	// Ti.API.info("UpDwnP variable sent as fired event by User_FingerPads.js  " + UpDwnP);
 }
 
 function do_save_pad_state_uL(UpDwnL) {
 	Ti.App.fireEvent('UpDwnL', {
 		UpDwnL : UpDwnL
 	});
-	Ti.API.info("UpDwnL variable sent as fired event by User_FingerPads.js  " + UpDwnL);
+	// Ti.API.info("UpDwnL variable sent as fired event by User_FingerPads.js  " + UpDwnL);
 }
 
 function get_user_settings() {
-	Ti.API.info("get_user_settings CALLED");
+	// Ti.API.info("get_user_settings CALLED");
 
-	Ti.API.info("get_user_settings ENDED OK");
+	// Ti.API.info("get_user_settings ENDED OK");
 
 }
 
@@ -870,8 +869,8 @@ function do_pad_LRpos() {
 		//finger_pads.style.margin = "0px 0px 0px " + LRpos + "px";
 
 	}
-	Ti.API.info("[UFP 817] LRpos do_pad_LRpos finger pads.js is : LRpos = " + LRpos + " LRposP =" + LRposP + " LRposL =" + LRposL + " LRHpoffset = " + LRHpoffset + " LRHloffset = " + LRHloffset);
-	Ti.API.info("[UFP 818] LHR is : = " + LRH);
+	// Ti.API.info("[UFP 817] LRpos do_pad_LRpos finger pads.js is : LRpos = " + LRpos + " LRposP =" + LRposP + " LRposL =" + LRposL + " LRHpoffset = " + LRHpoffset + " LRHloffset = " + LRHloffset);
+	// Ti.API.info("[UFP 818] LHR is : = " + LRH);
 
 	document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + Twist + "deg)");
 
@@ -889,8 +888,8 @@ function do_pad_Gap() {
 	k5.style.margin = "0px 0px 0px " + Gap + "px";
 	k6.style.margin = "0px 0px 0px " + Gap + "px";
 
-	// Ti.API.info("variable update by user finger pads.js is :-Gap =" + Gap + " GapOffset = " + GapOffset);
-	// Ti.API.info("finger pads.js is :-Gap/10 =" + Gap / 10);
+	// // Ti.API.info("variable update by user finger pads.js is :-Gap =" + Gap + " GapOffset = " + GapOffset);
+	// // Ti.API.info("finger pads.js is :-Gap/10 =" + Gap / 10);
 
 }
 
@@ -908,7 +907,7 @@ function do_pad_width() {
 }
 
 function do_pad_height() {
-	Ti.API.info("do_pad_height after orient =" + Height);
+	// Ti.API.info("do_pad_height after orient =" + Height);
 	k0.style.height = Height + "px";
 	k1.style.height = Height + "px";
 	k2.style.height = Height + "px";
@@ -920,7 +919,7 @@ function do_pad_height() {
 	UpperNums.style.height = (Height * 0.5) + "px";
 	Symbols.style.height = (Height * 0.5) + "px";
 
-	Ti.API.info("variable update by user finger pads.js is :-height =" + Height);
+	// Ti.API.info("variable update by user finger pads.js is :-height =" + Height);
 
 	if (Height < 0) {
 

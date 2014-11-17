@@ -52,7 +52,7 @@ var letter = "";
 var allVariables="START";
 Titanium.App.Properties.setString('locale', language);
 Titanium.App.language = language;
-Ti.API.info(props);
+// Ti.API.info(props);
 
 Ti.include('KS_email2.js');
 
@@ -137,7 +137,7 @@ function buttonvariablesPortrait() {
 	top_view.top = "450";
 	/* email window */
 	top_view.left = "330";
-	Ti.API.info(" HHHHHH PORTRAIT HHHHHHHHHHHHH Handedness at butt.js 271 = " + LRH);
+	// Ti.API.info(" HHHHHH PORTRAIT HHHHHHHHHHHHH Handedness at butt.js 271 = " + LRH);
 
 	if (LRH == -1) {//Left hand mode
 		LH_buttonvariablesPortrait();
@@ -222,7 +222,7 @@ function buttonvariablesLandscape() {
 	webview.background = "transparent";
 	webview.bottom = 0;
 
-	Ti.API.info(" HHHHHHHHH LANDSACPE HHHHHHHHHH Handedness at variables.js 218 = " + LRH);
+	// Ti.API.info(" HHHHHHHHH LANDSACPE HHHHHHHHHH Handedness at variables.js 218 = " + LRH);
 
 	if (LRH == -1) {//left hand Landscape
 		LH_buttonvariablesLandscape();
@@ -652,7 +652,7 @@ var Latest_news = Titanium.UI.createButton({
 Latest_news.removeEventListener("click", function() {});
 
 Latest_news.addEventListener("click", function() {
-	Ti.API.info("Opening More help");
+	// Ti.API.info("Opening More help");
 		checkInternet();
 	Ti.Platform.openURL("http://www.siwriter.co.uk/latest_news");
 });
@@ -666,7 +666,7 @@ var CyKey = Titanium.UI.createButton({
 CyKey.removeEventListener("click", function() {});
 
 CyKey.addEventListener("click", function() {
-	Ti.API.info("Opening Cykey");
+	// Ti.API.info("Opening Cykey");
 		checkInternet();
 	Ti.Platform.openURL("https://sites.google.com/site/cykeybellaire/cykey-home-page");
 });
@@ -680,7 +680,7 @@ var SiWriter = Titanium.UI.createButton({
 SiWriter.removeEventListener("click", function() {});
 
 SiWriter.addEventListener("click", function() {
-	Ti.API.info("Opening SiWriter");
+	// Ti.API.info("Opening SiWriter");
 		checkInternet();
 
 	Ti.Platform.openURL("http://www.siwriter.co.uk/");
@@ -695,7 +695,7 @@ var Facebook = Titanium.UI.createButton({
 Facebook.removeEventListener("click", function() {});
 
 Facebook.addEventListener("click", function() {
-	Ti.API.info("Opening Facebook");
+	// Ti.API.info("Opening Facebook");
 	checkInternet();
 	Ti.Platform.openURL("https://www.facebook.com/SiWriter");
 });
@@ -751,7 +751,7 @@ close_main.removeEventListener('click', function() {
 });
 
 close_main.addEventListener('click', function() {
-	Ti.API.info("Continue_Siwriting_main clicked");
+	// Ti.API.info("Continue_Siwriting_main clicked");
 	win1.remove(bottomtoolbar);
 	win1.remove(toolbar);
 	win1.remove(speech_toolbar);

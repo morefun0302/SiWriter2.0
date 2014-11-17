@@ -19,7 +19,7 @@ if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.
 } else {
 	orientation = 'landscape';
 }
-Ti.API.info(" !!!!!!!!!!!!!!!!!!!!!!! Launched in  " + orientation);
+// Ti.API.info(" !!!!!!!!!!!!!!!!!!!!!!! Launched in  " + orientation);
 
 help_WindowSwitcher();
 ///////////////////// INITIALISE //////////////////////////////////////////////////////////////
@@ -70,7 +70,7 @@ DoOrientation();
 Ti.App.addEventListener('Handedness', function(e) {
 	LRH = e.LRH;
 
-	Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 61 = " + LRH);
+	// Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 61 = " + LRH);
 	set_orientation_variables(orientation);
 });
 
@@ -211,8 +211,8 @@ Ti.Gesture.addEventListener('orientationchange', function(e) {
 	});
 
 
-	Ti.API.info('-- App Line 311 ---------------------------------orientation: ' + orientation);
-	Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 119 = " + LRH);
+	// Ti.API.info('-- App Line 311 ---------------------------------orientation: ' + orientation);
+	// Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 119 = " + LRH);
 	set_orientation_variables(orientation);
 	return orientation;
 });
@@ -268,7 +268,7 @@ Ti.App.addEventListener('webviewEvent', function(e) {
 	}
 
 	// trailer = contentTyped.slice(-23);
-	// Ti.API.info('trailer: ' + trailer);
+	// // Ti.API.info('trailer: ' + trailer);
 
 	trailer = trailer.slice(-23) + e.text;
 	aTrailer.value = trailer + "_";
@@ -404,7 +404,7 @@ help_BIGwindowSwitch.addEventListener('change', function(e) {
 	} else {
 		smallHelpimages.image = '/images/AllCodes.png';
 	}
-	Ti.API.info('****************** help_BIGwindowSwitch at line 200 now is ' + help_BIGwindowSwitch.value);
+	// Ti.API.info('****************** help_BIGwindowSwitch at line 200 now is ' + help_BIGwindowSwitch.value);
 });
 
 Ti.App.addEventListener('sizer_switched_off', function(e) {
@@ -419,21 +419,21 @@ Ti.App.addEventListener('help_switched_off', function(e) {
 });
 
 sizer_switch_slider.addEventListener('change', function(e) {
-	Ti.API.info('sizer_switch slide value ' + sizer_switch_slider.value);
+	// Ti.API.info('sizer_switch slide value ' + sizer_switch_slider.value);
 	Ti.App.fireEvent('sizer_switch_change', {
 		slider : sizer_switch_slider.value
 	});
 
 });
 
-//Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//// Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
 HBWS = Titanium.App.Properties.getString("Master_Setting_Big_Help");
-Ti.API.info("Titanium.App.Properties.getString(Master_Setting_Big_Help); from app is " + HBWS);
+// Ti.API.info("Titanium.App.Properties.getString(Master_Setting_Big_Help); from app is " + HBWS);
 help_BIGwindowSwitch.value = HBWS;
 
 HelpWS = Titanium.App.Properties.getString("Master_Setting_Window_Switch");
-Ti.API.info("Titanium.App.Properties.getString(Master_Setting_Window_Switch); from app is " + HelpWS);
+// Ti.API.info("Titanium.App.Properties.getString(Master_Setting_Window_Switch); from app is " + HelpWS);
 help_windowSwitch.value = HelpWS;
 
 //help_windowSwitch.value=true;
@@ -442,17 +442,17 @@ help_lettersSwitch.removeEventListener('change', function(e, FPhelp) {
 });
 
 help_lettersSwitch.addEventListener('change', function(e) {
-	//Ti.API.info('xxxxxxxxxxxhelp_lettersSwitch = ' + help_lettersSwitch.value);
+	//// Ti.API.info('xxxxxxxxxxxhelp_lettersSwitch = ' + help_lettersSwitch.value);
 	Ti.App.fireEvent('help_lettersSwitch_change', {
 		FPhelp : help_lettersSwitch.value
 	});
-	Ti.API.info('help_lettersSwitch = ' + help_lettersSwitch.value);
+	// Ti.API.info('help_lettersSwitch = ' + help_lettersSwitch.value);
 });
 
 help_windowSwitch.removeEventListener('change', help_WindowSwitcher);
 
 help_windowSwitch.addEventListener('change', function(e) {
-	Ti.API.info("help_windowSwitch.value= " + help_windowSwitch.value);
+	// Ti.API.info("help_windowSwitch.value= " + help_windowSwitch.value);
 
 	if (help_windowSwitch.value == 1) {
 		smallHelpView.show();
@@ -476,7 +476,7 @@ help_windowSwitch.addEventListener('change', function(e) {
 // Ti.App.removeEventListener('Handedness', function(e){});
 //
 // Ti.App.addEventListener('Handedness', function(e) {
-// Ti.API.info("Handednes at BUTTONS 9 sent by user_fingers=" + e.LRH);
+// // Ti.API.info("Handednes at BUTTONS 9 sent by user_fingers=" + e.LRH);
 // LRH = e.LRH;
 // });
 

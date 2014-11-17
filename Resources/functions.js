@@ -18,7 +18,7 @@ function dovars(allVariables) {
 
 function recover_settings() {
 
-	Ti.API.info("recover_settings -STARTS");
+	// Ti.API.info("recover_settings -STARTS");
 	for (var c = 0; c < props.length; c++) {
 		var value = Titanium.App.Properties.getString(props[c]);
 		if (value == 0) {
@@ -34,7 +34,7 @@ function recover_settings() {
 			Ti.App.fireEvent('FPhelp_setting', {
 				FPhelp : setting
 			});
-			Ti.API.info("Master_Setting_Window_Switch = " + setting);
+			// Ti.API.info("Master_Setting_Window_Switch = " + setting);
 		}
 
 		if (props[c] == "Master_Setting_Big_Help") {
@@ -42,7 +42,7 @@ function recover_settings() {
 			Ti.App.fireEvent('help_BIGwindowSwitch_setting', {
 				help_BIGwindowSwitch : setting
 			});
-			Ti.API.info("Master_Setting_Big_Help = " + setting);
+			// Ti.API.info("Master_Setting_Big_Help = " + setting);
 
 		}
 
@@ -52,7 +52,7 @@ function recover_settings() {
 				FPhelp : setting
 			});
 
-			Ti.API.info("Master_Setting_Help_Tabs = " + setting);
+			// Ti.API.info("Master_Setting_Help_Tabs = " + setting);
 
 		}
 
@@ -122,7 +122,7 @@ function recover_settings() {
 		dV(props[c],props[c].value);
 	}
 
-	Ti.API.info("recover_settings -For Next ENDS");
+	// Ti.API.info("recover_settings -For Next ENDS");
 	if (start == 1) {
 		Ti.App.fireEvent('initialise', {});
 		start = false;
@@ -159,8 +159,8 @@ function DoOrientation() {//-static sensor---
 		landscape();
 	}
 	var Model = Titanium.Platform.getModel();
-	Ti.API.info("Titanium.Platform !!!!!! THIS IS ME !!!!!!!!!!!!!!!! = " + Model);
-	Ti.API.info('-- FileSaver 157 --------------------static sensor----------------------------orientation: ' + orientation);
+	// Ti.API.info("Titanium.Platform !!!!!! THIS IS ME !!!!!!!!!!!!!!!! = " + Model);
+	// Ti.API.info('-- FileSaver 157 --------------------static sensor----------------------------orientation: ' + orientation);
 
 	return oriCurrent;
 
@@ -320,7 +320,7 @@ function getDate()
 }
 
 function close_main() {
-	Ti.API.info("close main triggered");
+	// Ti.API.info("close main triggered");
 
 	updateSettings();
 	//win2.remove(openWebsiteButton);
@@ -337,7 +337,7 @@ function updateSettings() {
 	help_WindowSwitcher();
 	help_bigWindowSwitch();
 	//Ti.App.fireEvent('help_lettersSwitch_change');
-	Ti.API.info("settings updated line 246 FS");
+	// Ti.API.info("settings updated line 246 FS");
 }
 
 function openWebsiteButtonAction() {
@@ -425,7 +425,7 @@ function help_WindowSwitcher() {
 		}
 	}
 
-	Ti.API.info("Orientation = " + orientation + " view.width = " + view.width + " help_windowSwitch.value = " + help_windowSwitch.value);
+	// Ti.API.info("Orientation = " + orientation + " view.width = " + view.width + " help_windowSwitch.value = " + help_windowSwitch.value);
 }
 
 function do_speech(ws, letter, whole_sentance) {
@@ -441,7 +441,7 @@ function do_speech(ws, letter, whole_sentance) {
 		} else {
 			SpeakWord = "";
 		}
-		Ti.API.info("last_word + n = " + n + " " + last_word + " SW " + SpeakWord);
+		// Ti.API.info("last_word + n = " + n + " " + last_word + " SW " + SpeakWord);
 
 		if (SpeakWord != "") {
 			speech.startSpeaking({
@@ -450,7 +450,7 @@ function do_speech(ws, letter, whole_sentance) {
 		}
 	} else {
 
-		Ti.API.info("whole_sentance = " + whole_sentance);
+		// Ti.API.info("whole_sentance = " + whole_sentance);
 
 		switch(letter) {
 			case ".":
