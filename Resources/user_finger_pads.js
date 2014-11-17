@@ -28,10 +28,10 @@ var UpDwn = 0;
 var LRHL = 1;
 var LRHP = 1;
 var LRH = 1;
-var HeightP=0;
-if (isNaN(parseFloat("HeightP"))) {var HeightP = -10;defaults();}
+alert(HeightP);
+if (isNaN(parseFloat(HeightP))) {var HeightP = -10;defaults();}
 if (typeof HeightP === "undefined") {HeightP=-10;}
-if (typeof HeightP == "string") {HeightP = 10; HeightP= parseInt("HeightP");defaults();}
+if (typeof HeightP == "string") {HeightP= parseFloat(HeightP);alert("was a string "+HeightP);}
  
   
 var	LRHpoffset = 0;
