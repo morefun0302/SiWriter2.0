@@ -25,11 +25,7 @@ var LRHL = 1;
 var LRHP = 1;
 var LRH = 1;
 //var HeightP=-10;
-if (isNaN(parseFloat(HeightP))) {HeightP = -10;defaults();}
-if (typeof HeightP === "undefined") {HeightP=-10;}
-if (typeof HeightP == "string") {HeightP= parseFloat(HeightP);}//alert("was a string "+HeightP);}
-if (HeightP == -10){defaults();}
-  
+catchError(); 
 var	LRHpoffset = 0;
 var	LRHloffset = 0;
 //Titanium.App.Properties.setInt("Simon", 123);
@@ -966,3 +962,13 @@ function blank_helper_text() {
 	hunums.style.display = "none";
 }
 
+function catchError(){
+if (isNaN(parseFloat(HeightP))) {HeightP = -10;defaults();}
+
+//if (typeof HeightP === "undefined") {HeightP=-10;}
+//if (typeof HeightL === "undefined") {HeightP=-10;}
+if (typeof HeightP == "string") {HeightP= parseFloat(HeightP);}//alert("was a string "+HeightP);}
+if (typeof HeightL == "string") {HeightL= parseFloat(HeightL);}// alert("was a string "+HeightL);}
+if (typeof WidthL == "string") {WidthL= parseFloat(WidthL);}// alert("was a string "+WidthL);}
+//if (HeightP = -10){defaults();}
+ }
