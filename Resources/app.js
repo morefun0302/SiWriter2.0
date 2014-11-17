@@ -52,9 +52,13 @@ webview.addEventListener('beforeload', function(e) {
 //alert("here?");
 recover_settings();
 //("and here?");
+
+//Ti.App.Properties.getString('HeightP');
+alert(Ti.App.Properties.getString('HeightP'));
     Ti.App.addEventListener("app:HeightPtrigger", function(HeightP) {
         alert("HeightP from event:" + HeightP.HeightP);
-        Titanium.App.Properties.setString("HeightP", HeightP.value);
+        //Titanium.App.Properties.setString("HeightP", HeightP.value);
+        Ti.App.Properties.setString('HeightP', HeightP);
     });
 Ti.App.removeEventListener('Handedness', function(e) {
 });
@@ -67,6 +71,9 @@ Ti.App.addEventListener('Handedness', function(e) {
 	Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 61 = " + LRH);
 	set_orientation_variables(orientation);
 });
+
+//Ti.App.message="Simon was here";
+ alert(Ti.App.message);
 // SETS INITIAL SCREEN DISPLAY positions.
 removeChildrens(win1);
 // can do without ?
