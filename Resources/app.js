@@ -54,11 +54,13 @@ recover_settings();
 //("and here?");
 
 //Ti.App.Properties.getString('HeightP');
-alert(Ti.App.Properties.getString('HeightP'));
+//alert('line57 '+Ti.App.Properties.getInt('HeightP'));
+//alert(Ti.App.Properties.getInt("Simon"));
+
     Ti.App.addEventListener("app:HeightPtrigger", function(HeightP) {
         alert("HeightP from event:" + HeightP.HeightP);
         //Titanium.App.Properties.setString("HeightP", HeightP.value);
-        Ti.App.Properties.setString('HeightP', HeightP);
+        Titanium.App.Properties.setInt('HeightP', HeightP.HeightP);
     });
 Ti.App.removeEventListener('Handedness', function(e) {
 });
@@ -72,8 +74,7 @@ Ti.App.addEventListener('Handedness', function(e) {
 	set_orientation_variables(orientation);
 });
 
-//Ti.App.message="Simon was here";
- alert(Ti.App.message);
+
 // SETS INITIAL SCREEN DISPLAY positions.
 removeChildrens(win1);
 // can do without ?

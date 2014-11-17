@@ -467,7 +467,7 @@ function do_speech(ws, letter, whole_sentance) {
 
 
 function setSettings(){
-	recover_settings();
+
 	
 }
 //////////////////////////END FUNCTIONS/////////////////////////

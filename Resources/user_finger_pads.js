@@ -5,7 +5,6 @@
 //  Created by Simon Anthony on 2014-01-25.
 //  Copyright 2014 Simon Anthony. All rights reserved.
 //
-var HeightP = 0;
 var WidthP = 0;
 var GapP = 0;
 var LRposP = 0;
@@ -29,10 +28,15 @@ var UpDwn = 0;
 var LRHL = 1;
 var LRHP = 1;
 var LRH = 1;
-
+var HeightP=0;
+if (isNaN(parseFloat("HeightP"))) {var HeightP = -10;defaults();}
+if (typeof HeightP === "undefined") {HeightP=-10;}
+if (typeof HeightP == "string") {HeightP = 10; HeightP= parseInt("HeightP");defaults();}
+ 
+  
 var	LRHpoffset = 0;
 var	LRHloffset = 0;
-
+//Titanium.App.Properties.setInt("Simon", 123);
 //alert("HTMLorientation="+HTMLorientation);
 
 var Hide = true;
@@ -40,14 +44,13 @@ var Hide = true;
 var FPPdisplay = false;
 
 
-defaults();
 initialise();
 do_update();
 
 Ti.App.addEventListener('From_Settings_Twist', function(e) {
 	Ti.API.info("Twist  sent by app=" + e.Twist);
 	Twist = e.Twist;
-	//alert("got one");
+	alert("got one");
 });
 
 Ti.App.addEventListener('From_Settings_LRposP', function(e) {
@@ -109,7 +112,10 @@ Ti.App.addEventListener('From_Settings_FPhelp', function(e) {
 	FPhelp = e.FPhelp;
 });
 
-function defaults() {
+
+
+function defaults() {alert(HeightP);
+if (HeightP <0) {
 	HeightP = 190;
 	WidthP = 98;
 	GapP = -2;
@@ -125,6 +131,7 @@ function defaults() {
 	LRposL = 0;
 	TwistL = 0;
 	UpDwnL = 305;
+	}
 }
 
 var reset = false;
@@ -226,9 +233,6 @@ function initialise() {
 
 		UpDwn = UpDwnP;
 		Height = HeightP;
-		//alert("fp file has HeightP ="+HeightP);
-		Ti.App.fireEvent("app:HeightPtrigger",HeightP);
-		Ti.App.fireEvent('app:HeightPtrigger', {HeightP: HeightP});
 		Gap = GapP;
 		Width = WidthP;
 		LRpos = LRposP;
@@ -516,11 +520,17 @@ function adjust_pads() {
 	did("amountH").onTouchDown = function(info) {
 
 		if (HTMLorientation == 'portrait') {
+			//HeightP= parseInt("HeightP"); ;
+			//alert(HeightP);
 			HeightP += 4;
 			Height = HeightP;
+			Ti.App.fireEvent('app:HeightPtrigger', {HeightP: HeightP});
+
 		} else {
 			HeightL += 4;
 			Height = HeightL;
+			//Ti.App.fireEvent('app:HeightLtrigger', {HeightL: HeightL});
+
 		};
 		do_pad_height();
 		do_save_pad_state_hP(Height);
@@ -529,9 +539,12 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			HeightP -= 4;
 			Height = HeightP;
+			Ti.App.fireEvent('app:HeightPtrigger', {HeightP: HeightP});
+
 		} else {
 			HeightL -= 4;
 			Height = HeightL;
+			//Ti.App.fireEvent('app:HeightLtrigger', {HeightL: HeightL});
 		};
 		do_pad_height();
 	};
