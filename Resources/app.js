@@ -34,11 +34,14 @@ webview.addEventListener('beforeload', function(e) {
 	start = 0;
 	var HeightP = Titanium.App.Properties.getString("HeightP", true);
 	var HeightL = Titanium.App.Properties.getString("HeightL", true);
-	
+	var WidthP = Titanium.App.Properties.getString("WidthP", true);
+	var WidthL = Titanium.App.Properties.getString("WidthL", true);
 	
 	
 	webview.evalJS("var HeightP='" + HeightP + "';");
 	webview.evalJS("var HeightL='" + HeightL + "';");
+	webview.evalJS("var WidthP='" + WidthP + "';");
+	webview.evalJS("var WidthL='" + WidthL + "';");
 });
 /////////////////////////////////////////////////////////////////////////
 /* var Cloud = require('ti.cloud');*/
@@ -71,7 +74,17 @@ recover_settings();
         Ti.App.addEventListener("app:HeightLtrigger", function(HeightL) {
         Titanium.App.Properties.setInt('HeightL', HeightL.HeightL);
     });
+
+        Ti.App.addEventListener("app:WidthPtrigger", function(WidthP) {
+        Titanium.App.Properties.setInt('WidthP', WidthP.WidthP);
+    });
+
+
+        Ti.App.addEventListener("app:WidthLtrigger", function(WidthL) {
+        Titanium.App.Properties.setInt('WidthL', WidthL.WidthL);
+    }); 
     
+       
 Ti.App.removeEventListener('Handedness', function(e) {
 });
 DoOrientation();

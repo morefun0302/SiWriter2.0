@@ -5,12 +5,11 @@
 //  Created by Simon Anthony on 2014-01-25.
 //  Copyright 2014 Simon Anthony. All rights reserved.
 //
-var WidthP = 0;
+
 var GapP = 0;
 var LRposP = 0;
 var TwistP = 0;
 var UpDwnP = 0;
-var WidthL = 0;
 var GapL = 0;
 var LRposL = 0;
 var LRposP = 0;
@@ -561,9 +560,11 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			WidthP += 2;
 			Width = WidthP;
+			Ti.App.fireEvent('app:WidthPtrigger', {WidthP: WidthP});
 		} else {
 			WidthL += 2;
 			Width = WidthL;
+			Ti.App.fireEvent('app:WidthLtrigger', {WidthL: WidthL});
 		};
 		do_pad_width();
 		do_save_pad_state_wP(Width);
@@ -573,9 +574,12 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			WidthP -= 2;
 			Width = WidthP;
+			Ti.App.fireEvent('app:WidthPtrigger', {WidthP: WidthP});
+
 		} else {
 			WidthL -= 2;
 			Width = WidthL;
+			Ti.App.fireEvent('app:WidthLtrigger', {WidthL: WidthL});
 		};
 		do_pad_width();
 		do_save_pad_state_wL(Width);
@@ -767,12 +771,7 @@ function do_save_pad_state_hP(HeightP) {
 	// Ti.API.info("heightP variable sent as fired event by User_FingerPads.js  " + HeightP);
 }
 
-function do_save_pad_state_hL(HeightL) {
-	Ti.App.fireEvent('HeightL', {
-		HeightL : HeightL
-	});
-	// Ti.API.info("HeightL variable sent as fired event by User_FingerPads.js  " + HeightL);
-}
+
 
 function do_save_pad_state_wP(WidthP) {
 	Ti.App.fireEvent('WidthP', {
