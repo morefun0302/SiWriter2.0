@@ -58,7 +58,7 @@ recover_settings();
 //alert(Ti.App.Properties.getInt("Simon"));
 
     Ti.App.addEventListener("app:HeightPtrigger", function(HeightP) {
-        alert("HeightP from event:" + HeightP.HeightP);
+        //alert("HeightP from event:" + HeightP.HeightP);
         //Titanium.App.Properties.setString("HeightP", HeightP.value);
         Titanium.App.Properties.setInt('HeightP', HeightP.HeightP);
     });

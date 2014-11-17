@@ -29,10 +29,10 @@ var LRHL = 1;
 var LRHP = 1;
 var LRH = 1;
 alert(HeightP);
-if (isNaN(parseFloat(HeightP))) {var HeightP = -10;defaults();}
+if (isNaN(parseFloat(HeightP))) {HeightP = -10;defaults();}
 if (typeof HeightP === "undefined") {HeightP=-10;}
-if (typeof HeightP == "string") {HeightP= parseFloat(HeightP);alert("was a string "+HeightP);}
- 
+if (typeof HeightP == "string") {HeightP= parseFloat(HeightP);}//alert("was a string "+HeightP);}
+if (HeightP == -10){defaults();}
   
 var	LRHpoffset = 0;
 var	LRHloffset = 0;
@@ -114,8 +114,9 @@ Ti.App.addEventListener('From_Settings_FPhelp', function(e) {
 
 
 
-function defaults() {alert(HeightP);
+function defaults() {//alert(HeightP);
 if (HeightP <0) {
+	Ti.API.info("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  HeightP at default func=" + HeightP);
 	HeightP = 190;
 	WidthP = 98;
 	GapP = -2;
