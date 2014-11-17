@@ -33,17 +33,12 @@ webview.addEventListener('beforeload', function(e) {
 	webview.evalJS("var FPhelp='" + FPhelp + "';");
 	start = 0;
 	/* Get stored variable from last time */
-
 	var HeightP = Titanium.App.Properties.getString("HeightP", true);
 	var HeightL = Titanium.App.Properties.getString("HeightL", true);
 	var WidthP = Titanium.App.Properties.getString("WidthP", true);
 	var WidthL = Titanium.App.Properties.getString("WidthL", true);
-	var GapP = Titanium.App.Properties.getString("GapP", true);
-	var GapL = Titanium.App.Properties.getString("GapL", true);
-	
-	
-	var HeightP = Titanium.App.Properties.getInt(HeightP);
-	var HeightL = Titanium.App.Properties.getInt(HeightL);
+	var GapP = Titanium.App.Properties.getInt("GapP", 0);
+	var GapL = Titanium.App.Properties.getInt("GapL", 0);	
 
 	/* Send variable to web view */	
 	webview.evalJS("var HeightP='" + HeightP + "';");

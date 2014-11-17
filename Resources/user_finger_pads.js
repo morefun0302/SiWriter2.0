@@ -22,7 +22,7 @@ var UpDwn = 0;
 var LRHL = 1;
 var LRHP = 1;
 var LRH = 1;
-//var HeightP=-10;
+//var HeightP=-10;defaults();
 catchError(); 
 var	LRHpoffset = 0;
 var	LRHloffset = 0;
@@ -125,6 +125,7 @@ Ti.App.addEventListener("app:orientation", function(e) {
 });
 
 function initialise() {
+
 	// Ti.API.info("initialise heard app INITIALLY say " + HTMLorientation + " to webview!!");
 	globalArrayL = [{
 		HeightL : HeightL
@@ -544,7 +545,7 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			GapP += 1;
 			Gap = GapP;
-			Ti.App.fireEvent('app:GapPtrigger', {GapP: GapP});
+						Ti.App.fireEvent('app:GapPtrigger', {GapP: GapP});
 
 		} else {
 			GapL += 1;
@@ -560,7 +561,7 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			GapP -= 1;
 			Gap = GapP;
-			Ti.App.fireEvent('app:GapPtrigger', {GapP: GapP});
+						Ti.App.fireEvent('app:GapPtrigger', {GapP: GapP});
 
 		} else {
 			GapL -= 1;
@@ -745,20 +746,16 @@ function do_save_pad_state_wL(WidthL) {
 }
 
 function do_save_pad_state_gP(GapP) {
-/*
 	Ti.App.fireEvent('GapP', {
 		GapP : GapP
-	});*/
-
+	});
 	// Ti.API.info("GapP variable sent as fired event by User_FingerPads.js  " + GapP);
 }
 
 function do_save_pad_state_gL(GapL) {
-/*
 	Ti.App.fireEvent('GapL', {
 		GapL : GapL
-	});*/
-
+	});
 	// Ti.API.info("GapL variable sent as fired event by User_FingerPads.js  " + GapL);
 }
 
@@ -928,7 +925,7 @@ function blank_helper_text() {
 }
 
 function catchError(){
-//if (isNaN(parseFloat(HeightP))) {HeightP = -10;defaults();}
+if (isNaN(parseFloat(HeightP))) {HeightP = -10;defaults();}
 
 /* Ensure correct variable type - ie, not a string ! */
 //if (typeof HeightP === "undefined") {HeightP=-10;}
