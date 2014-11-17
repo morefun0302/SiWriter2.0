@@ -46,6 +46,7 @@ var FPPdisplay = false;
 initialise();
 do_update();
 
+/*
 Ti.App.addEventListener('From_Settings_Twist', function(e) {
 	// Ti.API.info("Twist  sent by app=" + e.Twist);
 	Twist = e.Twist;
@@ -71,11 +72,13 @@ Ti.App.addEventListener('From_Settings_UpDwnP', function(e) {
 	UpDwnP = e.UpDwnP;
 });
 
+
 Ti.App.addEventListener('From_Settings_HeightP', function(e) {
 	// Ti.API.info("HeightP sent by app =" + e.HeightP);
 
 	HeightP = e.HeightP;
 });
+
 
 Ti.App.addEventListener('From_Settings_HeightL', function(e) {
 	// Ti.API.info("HeightL sent by app =" + e.HeightL);
@@ -110,6 +113,7 @@ Ti.App.addEventListener('From_Settings_FPhelp', function(e) {
 	// Ti.API.info("FPhelp  sent by app=" + e.FPhelp);
 	FPhelp = e.FPhelp;
 });
+*/
 
 
 

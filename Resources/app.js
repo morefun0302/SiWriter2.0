@@ -33,7 +33,12 @@ webview.addEventListener('beforeload', function(e) {
 	webview.evalJS("var FPhelp='" + FPhelp + "';");
 	start = 0;
 	var HeightP = Titanium.App.Properties.getString("HeightP", true);
+	var HeightL = Titanium.App.Properties.getString("HeightL", true);
+	
+	
+	
 	webview.evalJS("var HeightP='" + HeightP + "';");
+	webview.evalJS("var HeightL='" + HeightL + "';");
 });
 /////////////////////////////////////////////////////////////////////////
 /* var Cloud = require('ti.cloud');*/
@@ -62,6 +67,11 @@ recover_settings();
         //Titanium.App.Properties.setString("HeightP", HeightP.value);
         Titanium.App.Properties.setInt('HeightP', HeightP.HeightP);
     });
+    
+        Ti.App.addEventListener("app:HeightLtrigger", function(HeightL) {
+        Titanium.App.Properties.setInt('HeightL', HeightL.HeightL);
+    });
+    
 Ti.App.removeEventListener('Handedness', function(e) {
 });
 DoOrientation();
