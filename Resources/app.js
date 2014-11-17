@@ -32,16 +32,27 @@ webview.addEventListener('beforeload', function(e) {
 	var FPhelp = Titanium.App.Properties.getString("Master_Setting_Help_Tabs", true);
 	webview.evalJS("var FPhelp='" + FPhelp + "';");
 	start = 0;
+	/* Get stored variable from last time */
+
 	var HeightP = Titanium.App.Properties.getString("HeightP", true);
 	var HeightL = Titanium.App.Properties.getString("HeightL", true);
 	var WidthP = Titanium.App.Properties.getString("WidthP", true);
 	var WidthL = Titanium.App.Properties.getString("WidthL", true);
+	var GapP = Titanium.App.Properties.getString("GapP", true);
+	var GapL = Titanium.App.Properties.getString("GapL", true);
 	
 	
+	var HeightP = Titanium.App.Properties.getInt(HeightP);
+	var HeightL = Titanium.App.Properties.getInt(HeightL);
+
+	/* Send variable to web view */	
 	webview.evalJS("var HeightP='" + HeightP + "';");
 	webview.evalJS("var HeightL='" + HeightL + "';");
 	webview.evalJS("var WidthP='" + WidthP + "';");
 	webview.evalJS("var WidthL='" + WidthL + "';");
+	webview.evalJS("var GapP='" + GapP + "';");
+	webview.evalJS("var GapL='" + GapL + "';");
+
 });
 /////////////////////////////////////////////////////////////////////////
 /* var Cloud = require('ti.cloud');*/
@@ -65,9 +76,8 @@ recover_settings();
 //alert('line57 '+Ti.App.Properties.getInt('HeightP'));
 //alert(Ti.App.Properties.getInt("Simon"));
 
+/* Listen for variable update from Webview - fingerpads */ 
     Ti.App.addEventListener("app:HeightPtrigger", function(HeightP) {
-        //alert("HeightP from event:" + HeightP.HeightP);
-        //Titanium.App.Properties.setString("HeightP", HeightP.value);
         Titanium.App.Properties.setInt('HeightP', HeightP.HeightP);
     });
     
@@ -83,7 +93,14 @@ recover_settings();
         Ti.App.addEventListener("app:WidthLtrigger", function(WidthL) {
         Titanium.App.Properties.setInt('WidthL', WidthL.WidthL);
     }); 
-    
+
+        Ti.App.addEventListener("app:GapPtrigger", function(GapP) {
+        Titanium.App.Properties.setInt('GapP', GapP.GapP);
+    });    
+
+        Ti.App.addEventListener("app:GapLtrigger", function(GapL) {
+        Titanium.App.Properties.setInt('GapL', GapL.GapL);
+    }); 
        
 Ti.App.removeEventListener('Handedness', function(e) {
 });

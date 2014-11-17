@@ -6,11 +6,9 @@
 //  Copyright 2014 Simon Anthony. All rights reserved.
 //
 
-var GapP = 0;
 var LRposP = 0;
 var TwistP = 0;
 var UpDwnP = 0;
-var GapL = 0;
 var LRposL = 0;
 var LRposP = 0;
 var TwistL = 0;
@@ -39,74 +37,6 @@ var FPPdisplay = false;
 initialise();
 do_update();
 
-/*
-Ti.App.addEventListener('From_Settings_Twist', function(e) {
-	// Ti.API.info("Twist  sent by app=" + e.Twist);
-	Twist = e.Twist;
-	alert("got one");
-});
-
-Ti.App.addEventListener('From_Settings_LRposP', function(e) {
-	// Ti.API.info("LRposP  sent by app=" + e.LRposP);
-	LRposP = e.LRposP;
-});
-
-Ti.App.addEventListener('From_Settings_LRposL', function(e) {
-	// Ti.API.info("LRposL  sent by app=" + e.LRposL);
-	LRposL = e.LRposL;
-});
-Ti.App.addEventListener('From_Settings_UpDwnL', function(e) {
-	// Ti.API.info("UpDwnL sent by app =" + e.UpDwnL);
-	UpDwnL = e.UpDwnL;
-});
-
-Ti.App.addEventListener('From_Settings_UpDwnP', function(e) {
-	// Ti.API.info("UpDwnP sent by app =" + e.UpDwnP);
-	UpDwnP = e.UpDwnP;
-});
-
-
-Ti.App.addEventListener('From_Settings_HeightP', function(e) {
-	// Ti.API.info("HeightP sent by app =" + e.HeightP);
-
-	HeightP = e.HeightP;
-});
-
-
-Ti.App.addEventListener('From_Settings_HeightL', function(e) {
-	// Ti.API.info("HeightL sent by app =" + e.HeightL);
-
-	HeightL = e.HeightL;
-});
-
-Ti.App.addEventListener('From_Settings_WidthP', function(e) {
-	// Ti.API.info("WidthP  sent by app=" + e.WidthP);
-	WidthP = e.WidthP;
-});
-Ti.App.addEventListener('From_Settings_WidthL', function(e) {
-	// Ti.API.info("WidthL  sent by app=" + e.WidthL);
-	WidthL = e.WidthL;
-});
-
-Ti.App.addEventListener('From_Settings_GapP', function(e) {
-	// Ti.API.info("GapP  sent by app=" + e.GapP);
-	GapP = e.GapP;
-});
-Ti.App.addEventListener('From_Settings_GapL', function(e) {
-	// Ti.API.info("GapL  sent by app=" + e.GapL);
-	GapL = e.GapL;
-});
-
-Ti.App.addEventListener('From_Settings_FPPDisplay', function(e) {
-	// Ti.API.info("FPPDisplay  sent by app=" + e.FPPDisplay);
-	FPPDisplay = e.FPPDisplay;
-});
-
-Ti.App.addEventListener('From_Settings_FPhelp', function(e) {
-	// Ti.API.info("FPhelp  sent by app=" + e.FPhelp);
-	FPhelp = e.FPhelp;
-});
-*/
 
 
 
@@ -195,7 +125,6 @@ Ti.App.addEventListener("app:orientation", function(e) {
 });
 
 function initialise() {
-
 	// Ti.API.info("initialise heard app INITIALLY say " + HTMLorientation + " to webview!!");
 	globalArrayL = [{
 		HeightL : HeightL
@@ -420,10 +349,14 @@ function adjust_pads() {
 			TwistP -= 3;
 			Twist = TwistP;
 			twist(Twist);
+						Ti.App.fireEvent('app:TwistPtrigger', {TwistP: TwistP});
+
 		} else {
 			TwistL -= 3;
 			Twist = TwistL;
 			twist(Twist);
+						Ti.App.fireEvent('app:TwistLtrigger', {TwistL: TwistL});
+
 		}
 
 		// Ti.API.info("finger pads.js is : Twist = " + Twist + " TwistP = " + TwistP + " TwistL = " + TwistL);
@@ -435,10 +368,14 @@ function adjust_pads() {
 			TwistP += 3;
 			Twist = TwistP;
 			twist(Twist);
+						Ti.App.fireEvent('app:TwistPtrigger', {TwistP: TwistP});
+
 		} else {
 			TwistL += 3;
 			Twist = TwistL;
 			twist(Twist);
+						Ti.App.fireEvent('app:TwistLtrigger', {TwistL: TwistL});
+
 		}
 		// Ti.API.info("finger pads.js is : Twist = " + Twist + " TwistP = " + TwistP + " TwistL = " + TwistL);
 
@@ -454,9 +391,13 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			LRposP += 4;
 			LRpos = LRposP + LRHpoffset;
+						Ti.App.fireEvent('app:LRposPtrigger', {LRposP: LRposP});
+
 		} else {
 			LRposL += 4;
 			LRpos = LRposL + LRHloffset;
+						Ti.App.fireEvent('app:LRposLtrigger', {LRposL: LRposL});
+
 		};
 		// Ti.API.info(orientation + "+++++++++++++++++++LRposL =" + LRposL);
 		do_pad_LRpos();
@@ -467,9 +408,13 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			LRposP -= 4;
 			LRpos = LRposP + LRHpoffset;
+						Ti.App.fireEvent('app:LRposPtrigger', {LRposP: LRposP});
+
 		} else {
 			LRposL -= 4;
 			LRpos = LRposL + LRHloffset;
+						Ti.App.fireEvent('app:LRposLtrigger', {LRposL: LRposL});
+
 		};
 		// Ti.API.info(orientation + "--------------------LRposL =" + LRposL);
 
@@ -488,9 +433,13 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			UpDwnP -= 5;
 			UpDwn = UpDwnP;
+						Ti.App.fireEvent('app:UpDwnPtrigger', {UpDwnP: UpDwnP});
+
 		} else {
 			UpDwnL -= 5;
 			UpDwn = UpDwnL;
+						Ti.App.fireEvent('app:UpDwnLtrigger', {UpDwnL: UpDwnL});
+
 		};
 		do_pad_updwn();
 
@@ -500,9 +449,13 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			UpDwnP += 5;
 			UpDwn = UpDwnP;
+						Ti.App.fireEvent('app:UpDwnPtrigger', {UpDwnP: UpDwnP});
+
 		} else {
 			UpDwnL += 5;
 			UpDwn = UpDwnL;
+						Ti.App.fireEvent('app:UpDwnLtrigger', {UpDwnL: UpDwnL});
+
 		};
 		do_pad_updwn();
 
@@ -591,9 +544,13 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			GapP += 1;
 			Gap = GapP;
+			Ti.App.fireEvent('app:GapPtrigger', {GapP: GapP});
+
 		} else {
 			GapL += 1;
 			Gap = GapL;
+						Ti.App.fireEvent('app:GapLtrigger', {GapL: GapL});
+
 		};
 		do_pad_Gap();
 		do_save_pad_state_gP(Gap);
@@ -603,9 +560,13 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			GapP -= 1;
 			Gap = GapP;
+			Ti.App.fireEvent('app:GapPtrigger', {GapP: GapP});
+
 		} else {
 			GapL -= 1;
 			Gap = GapL;
+						Ti.App.fireEvent('app:GapLtrigger', {GapL: GapL});
+
 		};
 		do_pad_Gap();
 		do_save_pad_state_gL(Gap);
@@ -784,16 +745,20 @@ function do_save_pad_state_wL(WidthL) {
 }
 
 function do_save_pad_state_gP(GapP) {
+/*
 	Ti.App.fireEvent('GapP', {
 		GapP : GapP
-	});
+	});*/
+
 	// Ti.API.info("GapP variable sent as fired event by User_FingerPads.js  " + GapP);
 }
 
 function do_save_pad_state_gL(GapL) {
+/*
 	Ti.App.fireEvent('GapL', {
 		GapL : GapL
-	});
+	});*/
+
 	// Ti.API.info("GapL variable sent as fired event by User_FingerPads.js  " + GapL);
 }
 
@@ -963,12 +928,16 @@ function blank_helper_text() {
 }
 
 function catchError(){
-if (isNaN(parseFloat(HeightP))) {HeightP = -10;defaults();}
+//if (isNaN(parseFloat(HeightP))) {HeightP = -10;defaults();}
 
+/* Ensure correct variable type - ie, not a string ! */
 //if (typeof HeightP === "undefined") {HeightP=-10;}
 //if (typeof HeightL === "undefined") {HeightP=-10;}
 if (typeof HeightP == "string") {HeightP= parseFloat(HeightP);}//alert("was a string "+HeightP);}
 if (typeof HeightL == "string") {HeightL= parseFloat(HeightL);}// alert("was a string "+HeightL);}
 if (typeof WidthL == "string") {WidthL= parseFloat(WidthL);}// alert("was a string "+WidthL);}
+if (typeof WidthP == "string") {WidthP= parseFloat(WidthP);}// alert("was a string "+WidthP);}
+if (typeof GapP == "string") {GapP= parseFloat(GapP);}// alert("was a string "+GapP);}
+if (typeof GapL == "string") {GapL= parseFloat(GapL);}// alert("was a string "+GapP);}
 //if (HeightP = -10){defaults();}
  }
