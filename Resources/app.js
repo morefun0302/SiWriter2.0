@@ -32,6 +32,8 @@ webview.addEventListener('beforeload', function(e) {
 	var FPhelp = Titanium.App.Properties.getString("Master_Setting_Help_Tabs", true);
 	webview.evalJS("var FPhelp='" + FPhelp + "';");
 	start = 0;
+	var HeightP = Titanium.App.Properties.getString("HeightP", true);
+	webview.evalJS("var HeightP='" + HeightP + "';");
 });
 /////////////////////////////////////////////////////////////////////////
 /* var Cloud = require('ti.cloud');*/
@@ -50,7 +52,9 @@ webview.addEventListener('beforeload', function(e) {
 //alert("here?");
 recover_settings();
 //("and here?");
-
+    Ti.App.addEventListener("app:HeightP", function(HeightP) {
+        alert("HeightP:" + HeightP);
+    });
 Ti.App.removeEventListener('Handedness', function(e) {
 });
 DoOrientation();
@@ -78,6 +82,12 @@ win1.add(webview);
 win1.add(view);
 
 //webview.add(testButton);
+
+
+
+setSettings();
+
+
 
 Ti.App.removeEventListener('do_reset', function(e) {
 });

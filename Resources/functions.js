@@ -119,6 +119,7 @@ function recover_settings() {
 		if (props[c] == "FPhelp") {
 			var FPhelp = value;
 		}
+		dV(props[c],props[c].value);
 	}
 
 	Ti.API.info("recover_settings -For Next ENDS");
@@ -463,6 +464,12 @@ function do_speech(ws, letter, whole_sentance) {
 	}
 }
 
+
+
+function setSettings(){
+	recover_settings();
+	
+}
 //////////////////////////END FUNCTIONS/////////////////////////
 //////////////////////////END FUNCTIONS/////////////////////////
 //////////////////////////END FUNCTIONS/////////////////////////

@@ -225,7 +225,7 @@ function initialise() {
 		//appContainer.style.padding = "70px 0px 0px 0px";
 
 		UpDwn = UpDwnP;
-		Height = HeightP;
+		Height = HeightP;Ti.App.fireEvent("app:HeightP",HeightP);
 		Gap = GapP;
 		Width = WidthP;
 		LRpos = LRposP;
@@ -736,7 +736,6 @@ function do_pad_fphelp(FPhelp) {
 };
 
 function do_save_pad_state_fph(FPhelp) {
-	dV2(FPhelp);
 	Ti.App.fireEvent('FPhelp', {
 		FPhelp : FPhelp
 	});
@@ -744,7 +743,6 @@ function do_save_pad_state_fph(FPhelp) {
 }
 
 function do_save_pad_state_hP(HeightP) {
-	dV2(HeightP);
 	Ti.App.fireEvent('HeightP', {
 		HeightP : HeightP
 	});
@@ -752,7 +750,6 @@ function do_save_pad_state_hP(HeightP) {
 }
 
 function do_save_pad_state_hL(HeightL) {
-	dV2(HeightL);
 	Ti.App.fireEvent('HeightL', {
 		HeightL : HeightL
 	});
@@ -760,7 +757,6 @@ function do_save_pad_state_hL(HeightL) {
 }
 
 function do_save_pad_state_wP(WidthP) {
-	dV2(WidthP);
 	Ti.App.fireEvent('WidthP', {
 		WidthP : WidthP
 	});
@@ -768,7 +764,6 @@ function do_save_pad_state_wP(WidthP) {
 }
 
 function do_save_pad_state_wL(WidthL) {
-	dV2(WidthL);
 	Ti.App.fireEvent('WidthL', {
 		WidthL : WidthL
 	});
@@ -776,7 +771,6 @@ function do_save_pad_state_wL(WidthL) {
 }
 
 function do_save_pad_state_gP(GapP) {
-	dV2(GapP);
 	Ti.App.fireEvent('GapP', {
 		GapP : GapP
 	});
@@ -784,7 +778,6 @@ function do_save_pad_state_gP(GapP) {
 }
 
 function do_save_pad_state_gL(GapL) {
-	dV2(GapL);
 	Ti.App.fireEvent('GapL', {
 		GapL : GapL
 	});
@@ -792,14 +785,12 @@ function do_save_pad_state_gL(GapL) {
 }
 
 function do_save_pad_state_fpp(FPPDisplay) {
-	dV2(FPPDisplay);
 	Ti.App.fireEvent('FPPDisplay', {
 		FPPDisplay : FPPDisplay
 	});
 }
 
 function do_save_pad_state_pP(LRposP) {
-	dV2(LRposP);
 	Ti.App.fireEvent('LRposP', {
 		LRposP : LRpos
 	});
@@ -807,7 +798,6 @@ function do_save_pad_state_pP(LRposP) {
 }
 
 function do_save_pad_state_pL(LRposL) {
-	dV2(LRposL);
 	Ti.App.fireEvent('LRposL', {
 		LRposL : LRposL
 	});
@@ -815,7 +805,6 @@ function do_save_pad_state_pL(LRposL) {
 }
 
 function do_save_pad_state_lrh(LRH) {
-	dV2(LRH);
 }
 
 // Ti.App.fireEvent('Handedness', {
@@ -825,7 +814,6 @@ function do_save_pad_state_lrh(LRH) {
 // }
 
 function do_save_pad_state_t(Twist) {
-	dV2(Twist);
 	Ti.App.fireEvent('Twist', {
 		Twist : Twist
 	});
@@ -833,7 +821,6 @@ function do_save_pad_state_t(Twist) {
 }
 
 function do_save_pad_state_uP(UpDwnP) {
-	dV2(UpDwnP);
 	Ti.App.fireEvent('UpDwnP', {
 		UpDwnP : UpDwnP
 	});
@@ -841,7 +828,6 @@ function do_save_pad_state_uP(UpDwnP) {
 }
 
 function do_save_pad_state_uL(UpDwnL) {
-	dV2(UpDwnL);
 	Ti.App.fireEvent('UpDwnL', {
 		UpDwnL : UpDwnL
 	});
@@ -872,7 +858,7 @@ function do_pad_LRpos() {
 
 	document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + Twist + "deg)");
 
-	do_save_pad_state_t(Twist);
+	//do_save_pad_state_t(Twist);
 
 };
 
