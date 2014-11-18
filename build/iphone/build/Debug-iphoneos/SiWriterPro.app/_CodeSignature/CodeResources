@@ -46,7 +46,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		X+7dL2X6mKYOjvc0r8ifFMO/ucA=
+		sgEWcGT6DQdhYiqbcfE+rnEjQCM=
 		</data>
 		<key>KS_nav_ui.png</key>
 		<data>
@@ -64,6 +64,23 @@
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
 		</data>
+		<key>Settings.bundle/.LSOverride</key>
+		<data>
+		dnfQeofi5LwZobpAxXvNCRmxE6s=
+		</data>
+		<key>Settings.bundle/Root.plist</key>
+		<data>
+		R/VZ1RItqwcv/hEn5CWZa00yheM=
+		</data>
+		<key>Settings.bundle/en.lproj/Root.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ehWUeZY/FvdxqGBEDRABXNuOaM8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>SiWriter.js</key>
 		<data>
 		2kWLV1M5Ycixh4Ei5n+jiiGdGlM=
@@ -330,7 +347,7 @@
 		</data>
 		<key>user_finger_pads.js</key>
 		<data>
-		vAiGpO/QA2y32Bu88jsQBVd0hE8=
+		9D0700vBxfOZa3f/qyrokXNYU4E=
 		</data>
 		<key>webview.css</key>
 		<data>
@@ -391,6 +408,23 @@
 		<data>
 		GrW5gIFTa3W9cWpBd0EH24D6S40=
 		</data>
+		<key>Settings.bundle/.LSOverride</key>
+		<data>
+		dnfQeofi5LwZobpAxXvNCRmxE6s=
+		</data>
+		<key>Settings.bundle/Root.plist</key>
+		<data>
+		R/VZ1RItqwcv/hEn5CWZa00yheM=
+		</data>
+		<key>Settings.bundle/en.lproj/Root.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ehWUeZY/FvdxqGBEDRABXNuOaM8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>SiWriter.js</key>
 		<data>
 		2kWLV1M5Ycixh4Ei5n+jiiGdGlM=
@@ -657,7 +691,7 @@
 		</data>
 		<key>user_finger_pads.js</key>
 		<data>
-		vAiGpO/QA2y32Bu88jsQBVd0hE8=
+		9D0700vBxfOZa3f/qyrokXNYU4E=
 		</data>
 		<key>webview.css</key>
 		<data>

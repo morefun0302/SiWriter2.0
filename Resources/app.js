@@ -46,7 +46,6 @@ webview.addEventListener('beforeload', function(e) {
 	var TwistP = Titanium.App.Properties.getInt("TwistP", 0);
 	var TwistL = Titanium.App.Properties.getInt("TwistL", 0);	
 
-
 	/* Send variable to web view */	
 	webview.evalJS("var HeightP='" + HeightP + "';");
 	webview.evalJS("var HeightL='" + HeightL + "';");

@@ -31,6 +31,7 @@ var FPPdisplay = false;
 initialise();
 do_update();
 
+if (HeightP==0){defaults();do_update();}
 
 
 
