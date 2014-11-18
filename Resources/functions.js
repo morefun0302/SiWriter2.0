@@ -119,7 +119,7 @@ function recover_settings() {
 		if (props[c] == "FPhelp") {
 			var FPhelp = value;
 		}
-		dV(props[c],props[c].value);
+		//dV(props[c],props[c].value);
 	}
 
 	// Ti.API.info("recover_settings -For Next ENDS");
@@ -286,9 +286,9 @@ function timeStamp() {
 	contentTyped = txtViewDesc.value;
 	getDate();
 	contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + Now + "\r";
-	/*txtViewDesc.value = contentTyped;*/
+	txtViewDesc.value = contentTyped;
 
-	displayVariables();
+	//displayVariables();
 }
 
 function displayVariables() {
@@ -399,7 +399,7 @@ function get_MasterSettings() {
 		if (props[c] == "FPhelp") {
 			//var FPhelp = value;
 		}
-dV(props[c],props[c].value);
+//dV(props[c],props[c].value);
 	}
 }
 
