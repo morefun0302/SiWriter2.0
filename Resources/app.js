@@ -39,6 +39,13 @@ webview.addEventListener('beforeload', function(e) {
 	var WidthL = Titanium.App.Properties.getString("WidthL", true);
 	var GapP = Titanium.App.Properties.getInt("GapP", 0);
 	var GapL = Titanium.App.Properties.getInt("GapL", 0);	
+	var UpDwnP = Titanium.App.Properties.getInt("UpDwnP", 0);
+	var UpDwnL = Titanium.App.Properties.getInt("UpDwnL", 0);
+	var LRposP = Titanium.App.Properties.getInt("LRposP", 0);
+	var LRposL = Titanium.App.Properties.getInt("LRposL", 0);	
+	var TwistP = Titanium.App.Properties.getInt("TwistP", 0);
+	var TwistL = Titanium.App.Properties.getInt("TwistL", 0);	
+
 
 	/* Send variable to web view */	
 	webview.evalJS("var HeightP='" + HeightP + "';");
@@ -47,7 +54,12 @@ webview.addEventListener('beforeload', function(e) {
 	webview.evalJS("var WidthL='" + WidthL + "';");
 	webview.evalJS("var GapP='" + GapP + "';");
 	webview.evalJS("var GapL='" + GapL + "';");
-
+	webview.evalJS("var UpDwnP='" + UpDwnP + "';");
+	webview.evalJS("var UpDwnL='" + UpDwnL + "';");
+	webview.evalJS("var TwistP='" + TwistP + "';");
+	webview.evalJS("var TwistL='" + TwistL + "';");
+	webview.evalJS("var LRposP='" + LRposP + "';");
+	webview.evalJS("var LRposL='" + LRposL + "';");
 });
 /////////////////////////////////////////////////////////////////////////
 /* var Cloud = require('ti.cloud');*/
@@ -97,7 +109,40 @@ recover_settings();
         Titanium.App.Properties.setInt('GapL', GapL.GapL);
     }); 
        
+
+
+        Ti.App.addEventListener("app:UpDwnPtrigger", function(UpDwnP) {
+        Titanium.App.Properties.setInt('UpDwnP', UpDwnP.UpDwnP);
+    });    
+
+        Ti.App.addEventListener("app:UpDwnLtrigger", function(UpDwnL) {
+        Titanium.App.Properties.setInt('UpDwnL', UpDwnL.UpDwnL);
+    }); 
+    
+            Ti.App.addEventListener("app:LRposPtrigger", function(LRposP) {
+        Titanium.App.Properties.setInt('LRposP', LRposP.LRposP);
+    });    
+
+        Ti.App.addEventListener("app:LRposLtrigger", function(LRposL) {
+        Titanium.App.Properties.setInt('LRposL', LRposL.LRposL);
+    }); 
+    
+            Ti.App.addEventListener("app:TwistPtrigger", function(TwistP) {
+        Titanium.App.Properties.setInt('TwistP', TwistP.TwistP);
+    });    
+
+        Ti.App.addEventListener("app:TwistLtrigger", function(TwistL) {
+        Titanium.App.Properties.setInt('TwistL', TwistL.TwistL);
+    }); 
+
+
+
+
+
+
 Ti.App.removeEventListener('Handedness', function(e) {
+
+
 });
 DoOrientation();
 //alert("once?");
