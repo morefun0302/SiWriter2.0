@@ -1,6 +1,6 @@
 {
-	"target": "emulator",
-	"deployType": "development",
+	"target": "device",
+	"deployType": "test",
 	"classname": "Siwriterpro",
 	"platformPath": "/Users/Cyberman/Library/Application Support/Titanium/mobilesdk/osx/3.4.1.GA/android",
 	"modulesHash": "12b0fdf1e11de1cdded01e38b1e22316",
@@ -21,12 +21,12 @@
 	"fullscreen": false,
 	"skipJSMinification": true,
 	"mergeCustomAndroidManifest": false,
-	"encryptJS": false,
+	"encryptJS": true,
 	"minSDK": 10,
 	"targetSDK": 19,
-	"propertiesHash": "66088d2e0ed69cca75bcd692182a77ca",
+	"propertiesHash": "3b0ea128f36581b64382084e5788fe8b",
 	"activitiesHash": "d41d8cd98f00b204e9800998ecf8427e",
 	"servicesHash": "d41d8cd98f00b204e9800998ecf8427e",
 	"jssFilesHash": "d41d8cd98f00b204e9800998ecf8427e",
-	"jarLibHash": "d776bdb806f50594bd6c4412b65692de"
+	"jarLibHash": "581721a18caff3dfffa23a6c1b127634"
 }
