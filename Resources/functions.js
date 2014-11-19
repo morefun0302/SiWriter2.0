@@ -136,7 +136,7 @@ function recover_settings() {
 
 function missedKeypad() {
 	Ti.Media.vibrate();
-	alert("missed");
+	//alert("missed");
 }
 
 function setup_buttons() {

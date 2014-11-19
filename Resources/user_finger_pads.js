@@ -5,6 +5,7 @@
 //  Copyright 2014 Simon Anthony. All rights reserved.
 //
 
+//alert("ufp line 8 ");
 
 var Height = 0;
 var Width = 0;
@@ -19,17 +20,35 @@ var LRHP = 1;
 
 
 //var HeightP=-10;defaults();
-//catchError(); 
+
 var	LRHpoffset = 0;
 var	LRHloffset = 0;
+/*
 
 if (LRposP>4000){LRposP=0;alert(" LRposPvariable out of range");}
 if (LRposL>800){LRposL=0;alert(" LRposL variable out of range");}
 if (TwistP>800){TwistP=0;alert(" TwistP variable out of range");}
 if (TwistL>800){TwistL=0;alert(" TwistL variable out of range");}
+*/
 
+//alert("ufp line 34 ");
+
+/*
+if (LRposP>500){alert(" LRposPvariable out of range "+LRposP);}
+if (LRposP<-500){alert(" LRposPvariable out of range "+LRposP);}
+
+if (LRposL>500){alert(" LRposL variable out of range "+LRposL);}
+if (LRposL<-500){alert(" LRposL variable out of range "+LRposL);}
+
+if (TwistP>500){alert(" TwistP variable out of range "+TwistP);}
+if (TwistP<-500){alert(" TwistP variable out of range "+TwistP);}
+
+if (TwistL>500){alert(" TwistL variable out of range "+TwistL);}
+if (TwistL<-500){alert(" TwistL variable out of range "+TwistL);}
+*/
+ 
 var Hide = true;
-//alert("ufp line 34 ="+ LRposP);
+//alert("ufp line 51");
 
 var FPPdisplay = false;
 
@@ -37,12 +56,12 @@ var FPPdisplay = false;
 //initialise();
 do_update();
 
-			//alert("ufp line 37 ="+ LRposP);
+			//alert("ufp line 59 ");
 
 
 var recovered2 = "UFP HeightP "+HeightP +" HeightL="+HeightL+" WidthP="+WidthP+" WidthL="+WidthL+" GapP="+GapP+" GapL="+GapL+" UpDwnP="+UpDwnP+" UpDwnL="+UpDwnL+" LRposP="+LRposP+" LRposL="+LRposL+" TwistP="+TwistP+" TwistL="+TwistP+" LRH="+LRH+" LRHpoffset="+LRHpoffset+" LRHloffset="+LRHloffset;
 Ti.API.info(recovered2);
-
+//catchError(); 
 function defaults() {//alert(HeightP);
 //if (HeightP <0) {
 	// Ti.API.info("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  HeightP at default func=" + HeightP);
@@ -81,8 +100,11 @@ do_pad_fphelp(FPhelp);
 
 Ti.App.removeEventListener('Do_help_lettersSwitch', function() {
 });
+			//alert("ufp line 103");
 
 Ti.App.addEventListener('sizer_switch_change', function(e) {
+var recovered3 = "!!! HeightP "+HeightP +" HeightL="+HeightL+" WidthP="+WidthP+" WidthL="+WidthL+" GapP="+GapP+" GapL="+GapL+" UpDwnP="+UpDwnP+" UpDwnL="+UpDwnL+" LRposP="+LRposP+" LRposL="+LRposL+" TwistP="+TwistP+" TwistL="+TwistP+" LRH="+LRH+" LRHpoffset="+LRHpoffset+" LRHloffset="+LRHloffset;
+Ti.API.info(recovered3);
 
 	Hide = !e.slider;
 	// Ti.API.info("slider" + e.slider);
@@ -130,35 +152,8 @@ Ti.App.addEventListener("app:orientation", function(e) {
 
 
 
-function initialise() {			alert("ufp line 130 ="+ LRposP);
+function initialise() {		
 
-	globalArrayL = [{
-		HeightL : HeightL
-	}, {
-		WidthL : WidthL
-	}, {
-		TwistL : TwistL
-	}, {
-		UpDwnL : UpDwnL
-	}, {
-		LRposL : LRposL
-	}, {
-		GapL : GapL
-	}];
-
-	globalArrayP = [{
-		HeightP : HeightP
-	}, {
-		WidthP : WidthP
-	}, {
-		TwistP : TwistP
-	}, {
-		UpDwnP : UpDwnP
-	}, {
-		LRposP : LRposP
-	}, {
-		GapP : GapP
-	}];
 
 	if (HTMLorientation == "portrait") {
 		//appContainer.style.padding = "70px 0px 0px 0px";
@@ -185,11 +180,9 @@ function initialise() {			alert("ufp line 130 ="+ LRposP);
 
 ////////////////////////////////////////////////////////////
 function do_update() {
-
-	//appContainer.style.margin = UpDwn+"px 0px 0px " + LRpos + "px";
-			//alert("ufp line 192 ="+ LRposP);
-			//alert("SW HTMLorientation="+HTMLorientation);
-
+Ti.API.info("can do update??ufp 183 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+var recovered5 = "UFP HeightP "+HeightP +" HeightL="+HeightL+" WidthP="+WidthP+" WidthL="+WidthL+" GapP="+GapP+" GapL="+GapL+" UpDwnP="+UpDwnP+" UpDwnL="+UpDwnL+" LRposP="+LRposP+" LRposL="+LRposL+" TwistP="+TwistP+" TwistL="+TwistP+" LRH="+LRH+" LRHpoffset="+LRHpoffset+" LRHloffset="+LRHloffset;
+Ti.API.info(recovered5);
 	if (HTMLorientation == 'portrait') {
 		UpDwn = UpDwnP;
 		Height = HeightP;
@@ -237,7 +230,9 @@ function do_update() {
 			sizerholder.style.left = "10px";
 		}
 
-
+Ti.API.info("HAS DONE update ufp 233? xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+var recovered6 = "UFP HeightP "+HeightP +" HeightL="+HeightL+" WidthP="+WidthP+" WidthL="+WidthL+" GapP="+GapP+" GapL="+GapL+" UpDwnP="+UpDwnP+" UpDwnL="+UpDwnL+" LRposP="+LRposP+" LRposL="+LRposL+" TwistP="+TwistP+" TwistL="+TwistP+" LRH="+LRH+" LRHpoffset="+LRHpoffset+" LRHloffset="+LRHloffset;
+Ti.API.info(recovered6);
 	}
 
 	// Ti.API.info("update done");
@@ -258,6 +253,7 @@ Ti.App.addEventListener('help_lettersSwitch_change', function(e) {
 	FPhelp = e.FPhelp;
 	// Ti.API.info('SW- Switch FPhelp: ' + FPhelp);
 	do_pad_fphelp(FPhelp);
+	catchError();
 });
 
 setupKeys();
@@ -557,12 +553,9 @@ function adjust_pads() {
 }
 
 function do_righthanded(LRH) {
-	// Ti.API.info("ufp line 424 do_righthanded called. LRH=" + LRH);
 	LRHpoffset = 0;
 	LRHloffset = 0;
-	// Ti.App.fireEvent('Handedness', {
-	// LRH : 1
-	// });
+
 
 	// RIGHT HANDED - Default
 	blank_helper_text();
@@ -584,23 +577,13 @@ function do_righthanded(LRH) {
 		LRHloffset = 0;
 	}
 	document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + TwistL + "deg)");
-	flip_helper_text();
-	// Ti.API.info("Handedness in UFP.js 429 is : LRHP = " + LRHP + " LRHL = " + LRHL + " LRH = " + LRH);
-	// Ti.API.info("RIGHT HANDED Handedness in UFP.js 430 is : LRHloffset = " + LRHloffset + " LRHpoffset = " + LRHpoffset);
-	do_save_pad_state_lrh(LRH);
-	//do_update();
+	flip_helper_text();	do_save_pad_state_lrh(LRH);
 };
 
 function do_lefthanded(LRH) {
 	LRHpoffset = -196;
 	LRHloffset = -450;
-	// Ti.API.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ufp line 614 do_lefthanded called. LRH=" + LRH);
-	// Ti.API.info("ufp line 615 HTMLorientation = " + HTMLorientation);
-	// Ti.API.info("ufp line 615 orientation = " + orientation);
 
-	// Ti.App.fireEvent('Handedness', {
-	// LRH : -1
-	// });
 	LRH = -1;
 	// LEFT HANDED
 	blank_helper_text();
@@ -614,14 +597,9 @@ function do_lefthanded(LRH) {
 		//alert("HTMLorientation = "+HTMLorientation);
 		//LEFT handed Portrait
 		LRH = LRHP;
-		// Ti.API.info("LEFT handed Portrait UFP.js 630 is : LRHP = " + LRHP + " LRHL = " + LRHL + " LRH = " + LRH);
-		// Ti.API.info("LEFT handed Portrait in UFP.js 631 is : LRHloffset = " + LRHloffset + " LRHpoffset = " + LRHpoffset);
-		document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + TwistP + "deg)");
+				document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + TwistP + "deg)");
 	} else {
 		//HTMLorientation="landscape";
-		//alert("LEFT handed Landscape");
-		// Ti.API.info("LEFT handed Landscape in UFP.js 634 is : LRHloffset = " + LRHloffset + " LRHpoffset = " + LRHpoffset);
-		//alert("2");
 		LRHL = -1;
 		//LEFT handed Landscape
 		LRH = LRHL + LRHloffset;
@@ -637,11 +615,8 @@ function do_lefthanded(LRH) {
 	document.getElementById("h7").setAttribute("style", "-webkit-transform:scale(-1,1);");
 	document.getElementById("hsymbols").setAttribute("style", "-webkit-transform:scale(-1,1);");
 	document.getElementById("hunums").setAttribute("style", "-webkit-transform:scale(-1,1);");
-	// Ti.API.info("Handedness in UFP.js 648 is : LRHP = " + LRHP + " LRHL = " + LRHL + " LRH = " + LRH);
-	// Ti.API.info("LEFT HANDED Handedness in UFP.js 649 is : LRHloffset = " + LRHloffset + " LRHpoffset = " + LRHpoffset);
 
 	do_save_pad_state_lrh(LRH);
-	//do_update();
 };
 
 function do_pad_fppdisplay() {
@@ -893,8 +868,9 @@ function blank_helper_text() {
 }
 
 function catchError(){
-	
-if (isNaN(parseFloat(HeightP))) {HeightP = -10;defaults();}
+Ti.API.info("Strings? xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+var recovered4 = "UFP HeightP "+HeightP +" HeightL="+HeightL+" WidthP="+WidthP+" WidthL="+WidthL+" GapP="+GapP+" GapL="+GapL+" UpDwnP="+UpDwnP+" UpDwnL="+UpDwnL+" LRposP="+LRposP+" LRposL="+LRposL+" TwistP="+TwistP+" TwistL="+TwistP+" LRH="+LRH+" LRHpoffset="+LRHpoffset+" LRHloffset="+LRHloffset;
+Ti.API.info(recovered4);
 
 /* Ensure correct variable type - ie, not a string ! */
 

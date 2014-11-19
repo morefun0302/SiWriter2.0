@@ -1,10 +1,10 @@
 // var cloudebug = require("com.infinery.cdb");
 // var cdb = cloudebug.create('6d1aa3d3-db47-44ed-8680-5b6e30478b1f');
-// 
+//
 // cdb.session({
-	// connected : function(e) {
-		// cdb.write('info', 'cloudebug is connected to the server and ready');
-	// }
+// connected : function(e) {
+// cdb.write('info', 'cloudebug is connected to the server and ready');
+// }
 // });
 
 Ti.include('variables.js');
@@ -38,17 +38,19 @@ webview.addEventListener('beforeload', function(e) {
 	var WidthP = Titanium.App.Properties.getInt("WidthP", 0);
 	var WidthL = Titanium.App.Properties.getInt("WidthL", 0);
 	var GapP = Titanium.App.Properties.getInt("GapP", 0);
-	var GapL = Titanium.App.Properties.getInt("GapL", 0);	
+	var GapL = Titanium.App.Properties.getInt("GapL", 0);
 	var UpDwnP = Titanium.App.Properties.getInt("UpDwnP", 0);
 	var UpDwnL = Titanium.App.Properties.getInt("UpDwnL", 0);
-	var LRposP = Titanium.App.Properties.getInt("LRposP", 0);//alert("app line 44 LRposP="+LRposP);
-	var LRposL = Titanium.App.Properties.getInt("LRposL", 0);	
+	var LRposP = Titanium.App.Properties.getInt("LRposP", 0);
+	//alert("app line 44 LRposP="+LRposP);
+	var LRposL = Titanium.App.Properties.getInt("LRposL", 0);
+	// alert("app line 44 LRposL="+LRposL);
 	var TwistP = Titanium.App.Properties.getInt("TwistP", 0);
 	var TwistL = Titanium.App.Properties.getInt("TwistL", 0);
-	var LRH = Titanium.App.Properties.getInt("LRH", 0);	
-var recovered = "HeightP "+HeightP +" HeightL="+HeightL+" WidthP="+WidthP+" WidthL="+WidthL+" GapP="+GapP+" GapL="+GapL+" UpDwnP="+UpDwnP+" UpDwnL="+UpDwnL+" LRposP="+LRposP+" LRposL="+LRposL+" TwistP="+TwistP+" TwistL="+TwistP+" LRH="+LRH;
-Ti.API.info(recovered);
-	/* Send variable to web view */	
+	var LRH = Titanium.App.Properties.getInt("LRH", 0);
+	var recovered = "App51 HeightP " + HeightP + " HeightL=" + HeightL + " WidthP=" + WidthP + " WidthL=" + WidthL + " GapP=" + GapP + " GapL=" + GapL + " UpDwnP=" + UpDwnP + " UpDwnL=" + UpDwnL + " LRposP=" + LRposP + " LRposL=" + LRposL + " TwistP=" + TwistP + " TwistL=" + TwistP + " LRH=" + LRH;
+	Ti.API.info(recovered);
+	/* Send variable to web view */
 	webview.evalJS("var HeightP='" + HeightP + "';");
 	webview.evalJS("var HeightL='" + HeightL + "';");
 	webview.evalJS("var WidthP='" + WidthP + "';");
@@ -68,74 +70,99 @@ Ti.API.info(recovered);
 
 recover_settings();
 
-
-/* Listen for variable update from Webview - fingerpads */ 
-    Ti.App.addEventListener("app:HeightPtrigger", function(HeightP) {
-        Titanium.App.Properties.setInt('HeightP', HeightP.HeightP);
-    });
-    
-        Ti.App.addEventListener("app:HeightLtrigger", function(HeightL) {
-        Titanium.App.Properties.setInt('HeightL', HeightL.HeightL);
-    });
-
-        Ti.App.addEventListener("app:WidthPtrigger", function(WidthP) {
-        Titanium.App.Properties.setInt('WidthP', WidthP.WidthP);
-    });
+/* Listen for variable update from Webview - fingerpads */
+Ti.App.removeEventListener("app:HeightPtrigger", function(FHeightP) {});
+Ti.App.addEventListener("app:HeightPtrigger", function(FHeightP) {		
+	var HeightP = FHeightP.HeightP;
+	Titanium.App.Properties.setInt('HeightP', HeightP);
+});
 
 
-        Ti.App.addEventListener("app:WidthLtrigger", function(WidthL) {
-        Titanium.App.Properties.setInt('WidthL', WidthL.WidthL);
-    }); 
+Ti.App.removeEventListener("app:HeightLtrigger", function(FHeightL) {});
+Ti.App.addEventListener("app:HeightLtrigger", function(FHeightL) {
+var HeightL=FHeightL.HeightL;
+	Titanium.App.Properties.setInt('HeightL', HeightL);
+});
 
-        Ti.App.addEventListener("app:GapPtrigger", function(GapP) {
-        Titanium.App.Properties.setInt('GapP', GapP.GapP);
-    });    
-
-        Ti.App.addEventListener("app:GapLtrigger", function(GapL) {
-        Titanium.App.Properties.setInt('GapL', GapL.GapL);
-    }); 
-       
+Ti.App.removeEventListener("app:WidthPtrigger", function(FWidthP) {});
+Ti.App.addEventListener("app:WidthPtrigger", function(FWidthP) {
+	var WidthP=FWidthP.WidthP;
+	Titanium.App.Properties.setInt('WidthP', WidthP);
+});
 
 
-        Ti.App.addEventListener("app:UpDwnPtrigger", function(UpDwnP) {
-        Titanium.App.Properties.setInt('UpDwnP', UpDwnP.UpDwnP);
-    });    
+Ti.App.removeEventListener("app:WidthLtrigger", function(FWidthL) {});
+Ti.App.addEventListener("app:WidthLtrigger", function(FWidthL) {
+var WidthL=FWidthL.WidthL;
+	Titanium.App.Properties.setInt('WidthL', WidthL);
+});
 
-        Ti.App.addEventListener("app:UpDwnLtrigger", function(UpDwnL) {
-        Titanium.App.Properties.setInt('UpDwnL', UpDwnL.UpDwnL);
-    }); 
-    			//alert("APP line 108 ="+ LRposP);
-            Ti.App.addEventListener("app:LRposPtrigger", function(LRposP) {
-            	//alert("app line 110 LRposP="+LRposP.LRposP);
-        Titanium.App.Properties.setInt('LRposP', LRposP.LRposP);
-        
-    });    
+Ti.App.removeEventListener("app:GapPtrigger", function(FGapP) {});
+Ti.App.addEventListener("app:GapPtrigger", function(FGapP) {
+var GapP=FGapP.GapP;
+	Titanium.App.Properties.setInt('GapP', GapP);
+});
 
-        Ti.App.addEventListener("app:LRposLtrigger", function(LRposL) {
-        Titanium.App.Properties.setInt('LRposL', LRposL.LRposL);
-    }); 
-    
-            Ti.App.addEventListener("app:TwistPtrigger", function(TwistP) {
-        Titanium.App.Properties.setInt('TwistP', TwistP.TwistP);
-    });    
+Ti.App.removeEventListener("app:GapLtrigger", function(FGapL) {});
+Ti.App.addEventListener("app:GapLtrigger", function(FGapL) {
+	var GapL=FGapL.GapL;
+	Titanium.App.Properties.setInt('GapL', GapL);
+});
 
-        Ti.App.addEventListener("app:TwistLtrigger", function(TwistL) {
-        Titanium.App.Properties.setInt('TwistL', TwistL.TwistL);
-    }); 
+Ti.App.removeEventListener("app:UpDwnPtrigger", function(FUpDwnP) {});
+Ti.App.addEventListener("app:UpDwnPtrigger", function(FUpDwnP) {
+	var UpDwnP=FUpDwnP.UpDwnP;
+	Titanium.App.Properties.setInt('UpDwnP', UpDwnP);
+});
 
+Ti.App.removeEventListener("app:UpDwnLtrigger", function(FUpDwnL) {});
+Ti.App.addEventListener("app:UpDwnLtrigger", function(FUpDwnL) {
+	var UpDwnL=FUpDwnL.UpDwnL;
+	Titanium.App.Properties.setInt('UpDwnL', UpDwnL);
+});
+//alert("APP line 113 ="+ LRposP);
+
+Ti.App.removeEventListener("app:LRposPtrigger", function(FLRposP) {});
+Ti.App.addEventListener("app:LRposPtrigger", function(FLRposP) {
+	//alert("app line 115 LRposP="+FLRposP.LRposP);
+	var LRposP=FLRposP.LRposP;
+	Titanium.App.Properties.setInt('LRposP', LRposP);
+});
+
+Ti.App.removeEventListener("app:LRposLtrigger", function(FLRposL) {});
+Ti.App.addEventListener("app:LRposLtrigger", function(FLRposL) {
+	if ( typeof LRposL == "string") {
+		LRposL = parseInt(LRposL);
+		//alert("was a string " + LRposL);
+	}
+	//alert("was "+LRposL.LRposL);
+	var LRposL = FLRposL.LRposL;
+	//alert("is "+LRposL);
+	Titanium.App.Properties.setInt('LRposL', LRposL);
+});
+
+Ti.App.removeEventListener("app:TwistPtrigger", function(FTwistP) {});
+Ti.App.addEventListener("app:TwistPtrigger", function(FTwistP) {
+		var TwistP = FTwistP.TwistP;
+	Titanium.App.Properties.setInt('TwistP', TwistP);
+});
+
+Ti.App.removeEventListener("app:TwistLtrigger", function(FTwistL) {});
+Ti.App.addEventListener("app:TwistLtrigger", function(FTwistL) {
+	var TwistL = FTwistL.TwistL;
+	Titanium.App.Properties.setInt('TwistL', TwistL);
+});
 
 Ti.App.removeEventListener('Handedness', function(e) {
-
 
 });
 //DoOrientation();
 
 Ti.App.addEventListener('Handedness', function(e) {
 	LRH = e.LRH;
-
+Titanium.App.Properties.setInt('LRH', LRH);
 	set_orientation_variables(orientation);
 });
-
 
 // SETS INITIAL SCREEN DISPLAY positions.
 removeChildrens(win1);
@@ -151,8 +178,6 @@ win1.add(smallHelpView);
 ////////////////////////////////////////////////////////////////////////////////////////////////
 win1.add(webview);
 win1.add(view);
-
-
 
 Ti.App.removeEventListener('do_reset', function(e) {
 });
@@ -256,11 +281,9 @@ Ti.Gesture.removeEventListener('orientationchange', function(e) {
 Ti.Gesture.addEventListener('orientationchange', function(e) {
 	orientation = getOrientation(e.orientation);
 
-
 	Ti.App.fireEvent('app:orientation', {
 		orientation : orientation
 	});
-
 
 	set_orientation_variables(orientation);
 	return orientation;
@@ -291,7 +314,6 @@ Ti.App.addEventListener('webviewEvent', function(e) {
 
 	////***********************///DELETE sensor//
 
-
 	if (e.text == "\b_") {
 		e.text = "";
 		contentTyped = contentTyped.slice(0, -1);
@@ -316,7 +338,6 @@ Ti.App.addEventListener('webviewEvent', function(e) {
 		txtViewDesc.value = contentTyped + "_";
 	}
 
-
 	trailer = trailer.slice(-23) + e.text;
 	aTrailer.value = trailer + "_";
 
@@ -327,18 +348,16 @@ Ti.App.addEventListener('webviewEvent', function(e) {
 			ws = "word";
 		}
 
-
-
 		do_speech(ws, e.text, whole_sentance);
 	}
 
-switch(e.text) {
-			case ".":
-			case "!":
-			case "?":
-			whole_sentance="";
+	switch(e.text) {
+	case ".":
+	case "!":
+	case "?":
+		whole_sentance = "";
 
-};
+	};
 
 });
 
@@ -379,7 +398,6 @@ speech_slider.addEventListener('change', function() {
 		win1.remove(speech_toolbar);
 	}
 });
-
 
 btnChoosePhoto.removeEventListener('click', function(e) {
 });
@@ -509,40 +527,5 @@ help_windowSwitch.addEventListener('change', function(e) {
 	help_WindowSwitcher();
 });
 
-//////////////////BUTTONS////////////////
-//////////////////BUTTONS////////////////
-//////////////////BUTTONS////////////////
-//////////////////BUTTONS////////////////
-//////////////////BUTTONS////////////////
-//////////////////BUTTONS////////////////
-
-//LRH =1;// 1 means right handed, -1 means left handed
-
-// Ti.App.removeEventListener('Handedness', function(e){});
-//
-// Ti.App.addEventListener('Handedness', function(e) {
-// // Ti.API.info("Handednes at BUTTONS 9 sent by user_fingers=" + e.LRH);
-// LRH = e.LRH;
-// });
-
-////////////END /BUTTONS////////////////
-////////////END /BUTTONS////////////////
-////////////END /BUTTONS////////////////
-////////////END /BUTTONS////////////////
-////////////END /BUTTONS////////////////
-////////////END /BUTTONS////////////////
-////////////END /BUTTONS////////////////
-
-/////////////////////////////////////HELP WINDOW SETUP//////////////////////////////
-//
-// var win2 = Titanium.UI.createWindow({// top section BG
-// title : 'SiWriter.co.uk Help',
-// backgroundImage : 'images/Sized_Screen_lighter.png',
-// height : "100%",
-// bottom : 0,
-// });
-
-/////////////////////////////////////////end help window  //////////////////////////
-//Ti.include('speech_to_text.js');
 Ti.include('text_to_speech.js');
 
