@@ -4,15 +4,18 @@
 /////////////FUNCTIONS////////////////
 /////////////FUNCTIONS////////////////
 /////////////FUNCTIONS////////////////
+
 function checkInternet() {
-	if (!Titanium.Network.getOnline( ) ){alert("You are not online");
-	var dialog = Ti.UI.createAlertDialog({
-    title: 'Sorry'
-  }).show();	
-}	
+	if (!Titanium.Network.getOnline()) {
+		alert("You are not online");
+		var dialog = Ti.UI.createAlertDialog({
+			title : 'Sorry'
+		}).show();
+	}
 }
+
 function dovars(allVariables) {
-	allVariables=allVariables+"\r"+(props[c] + " = " + value);
+	allVariables = allVariables + "\r" + (props[c] + " = " + value);
 	return allVariables;
 }
 
@@ -28,7 +31,7 @@ function recover_settings() {
 			setting = true;
 		}
 		Titanium.API.info(props[c] + " = " + value);
-	allVariables=allVariables+"\r"+(props[c] + " = " + value);
+		allVariables = allVariables + "\r" + (props[c] + " = " + value);
 		if (props[c] == "Master_Setting_Window_Switch") {
 			help_windowSwitch.value = setting;
 			Ti.App.fireEvent('FPhelp_setting', {
@@ -169,20 +172,20 @@ function DoOrientation() {//-static sensor---
 function getOrientation(o) {
 	oldOrientation = orientation;
 	switch (o) {
-		case Titanium.UI.PORTRAIT: {
-			return 'portrait';
-		}
-		case Titanium.UI.UPSIDE_PORTRAIT: {
-			return 'portrait';
-		}
-		case Titanium.UI.LANDSCAPE_LEFT: {
-			return 'landscape';
-		}
-		case Titanium.UI.LANDSCAPE_RIGHT: {
-			return 'landscape';
-		}
-		default :
-			return oldOrientation;
+	case Titanium.UI.PORTRAIT: {
+		return 'portrait';
+	}
+	case Titanium.UI.UPSIDE_PORTRAIT: {
+		return 'portrait';
+	}
+	case Titanium.UI.LANDSCAPE_LEFT: {
+		return 'landscape';
+	}
+	case Titanium.UI.LANDSCAPE_RIGHT: {
+		return 'landscape';
+	}
+	default :
+		return oldOrientation;
 	}
 }
 
@@ -241,8 +244,8 @@ function pasteTextFromClipboard() {
 }
 
 function copyTextToClipboard() {
-	if(txtViewDesc.value =="_") {
-	//if (contentTyped == "_") {
+	if (txtViewDesc.value == "_") {
+		//if (contentTyped == "_") {
 
 		alert("Nothing to copy");
 	} else {
@@ -292,29 +295,27 @@ function timeStamp() {
 }
 
 function displayVariables() {
-contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + allVariables + "\r\r";
-	txtViewDesc.value = contentTyped+ "END\r\r";
+	contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + allVariables + "\r\r";
+	txtViewDesc.value = contentTyped + "END\r\r";
 }
 
-function dV(Variable,Value) {
+function dV(Variable, Value) {
 	contentTyped = txtViewDesc.value;
-	contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + Variable +"="+ Value;
-	txtViewDesc.value = contentTyped+ "\r";
+	contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + Variable + "=" + Value;
+	txtViewDesc.value = contentTyped + "\r";
 }
 
-
-function getDate()
-{
+function getDate() {
 	// var dateObj = new MMPDate("Year         : YYYY, YYY<br/>\
-						 // Month        : MMMMM, MMMM, MMM<br/>\
-						 // Day          : DDDDD, DDDD<br/>\
-						 // Date         : DDD<br/>\
-						 // Hour         : HHHH, HHH<br/>\
-						 // Minute       : mmm<br/>\
-						 // Second       : sss<br/>\
-						 // Milli Second : lll");
+	// Month        : MMMMM, MMMM, MMM<br/>\
+	// Day          : DDDDD, DDDD<br/>\
+	// Date         : DDD<br/>\
+	// Hour         : HHHH, HHH<br/>\
+	// Minute       : mmm<br/>\
+	// Second       : sss<br/>\
+	// Milli Second : lll");
 	// //document.getElementById("datetime").innerHTML = dateObj.FormattedDate();
-	
+
 	var dateObj = new MMPDate("DDDDD, MMMMM DDD at HHHH:mmm:sss");
 	Now = dateObj.FormattedDate();
 }
@@ -376,21 +377,21 @@ function get_MasterSettings() {
 			aTextField.value = value;
 		}
 
-		 if (props[c] == "Height") {
-		 var Height = value;
-		 }
-		
-		 if (props[c] == "Width") {
-		 var Width = value;
-		 }
-		
-		 if (props[c] == "pos") {
-		 var pos = value;
-		 }
-		
-		 if (props[c] == "Gap") {
-		 var Gap = value;
-		 }
+		if (props[c] == "Height") {
+			var Height = value;
+		}
+
+		if (props[c] == "Width") {
+			var Width = value;
+		}
+
+		if (props[c] == "pos") {
+			var pos = value;
+		}
+
+		if (props[c] == "Gap") {
+			var Gap = value;
+		}
 
 		if (props[c] == "FPPDisplay") {
 			var FPPDisplay = value;
@@ -399,7 +400,7 @@ function get_MasterSettings() {
 		if (props[c] == "FPhelp") {
 			//var FPhelp = value;
 		}
-//dV(props[c],props[c].value);
+		//dV(props[c],props[c].value);
 	}
 }
 
@@ -453,18 +454,16 @@ function do_speech(ws, letter, whole_sentance) {
 		// Ti.API.info("whole_sentance = " + whole_sentance);
 
 		switch(letter) {
-			case ".":
-			case "!":
-			case "?":
-				speech.startSpeaking({
-					text : whole_sentance
-				});
-				whole_sentance = "";
+		case ".":
+		case "!":
+		case "?":
+			speech.startSpeaking({
+				text : whole_sentance
+			});
+			whole_sentance = "";
 		}
 	}
 }
-
-
 
 //////////////////////////END FUNCTIONS/////////////////////////
 //////////////////////////END FUNCTIONS/////////////////////////

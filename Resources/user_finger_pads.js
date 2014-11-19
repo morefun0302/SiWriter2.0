@@ -16,6 +16,13 @@ var UpDwn = 0;
 var LRHL = 1;
 var LRHP = 1;
 var LRH = 1;
+/*
+var LRH = Titanium.App.Properties.getInt("LRH", 0);
+	if (LRH == -1) {//Left hand mode
+//buttonvariablesPortrait()
+	do_lefthanded(LRH);
+	}*/
+
 //var HeightP=-10;defaults();
 catchError(); 
 var	LRHpoffset = 0;
@@ -46,13 +53,13 @@ function defaults() {//alert(HeightP);
 	UpDwnP = 140;
 	LRHP = 1;
 	LRHL = 1;
-	LRH = 1;
 	HeightL = 195;
 	WidthL = 91;
 	GapL = -3;
 	LRposL = 0;
 	TwistL = 0;
 	UpDwnL = 305;
+	LRH = 1; // Default right handed
 //	}
 }
 
@@ -291,6 +298,8 @@ function adjust_pads() {
 		if (LRH != -1) {
 			LRH = -1;
 			do_lefthanded(LRH);
+			Ti.App.fireEvent('app:LRHtrigger', {LRH: LRH});
+
 			do_update();
 		}
 	};
@@ -299,6 +308,7 @@ function adjust_pads() {
 		if (LRH != 1) {
 			LRH = 1;
 			do_righthanded(LRH);
+			Ti.App.fireEvent('app:LRHtrigger', {LRH: LRH});
 			do_update();
 		}
 	};

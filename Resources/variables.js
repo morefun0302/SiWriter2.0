@@ -49,7 +49,9 @@ var language = Titanium.Platform.locale;
 var whole_sentance = "";
 var sentance = "";
 var letter = "";
-var allVariables="START";
+var allVariables = "START";
+var LRH = 1;
+
 Titanium.App.Properties.setString('locale', language);
 Titanium.App.language = language;
 // Ti.API.info(props);
@@ -518,8 +520,6 @@ var win1 = Titanium.UI.createWindow({// top section BG
 	bottom : 0,
 });
 
-var LRH = 1;
-
 var SiWriter_helpView = Titanium.UI.createWebView({
 	backgroundColor : 'transparent',
 	url : 'help.html',
@@ -649,25 +649,26 @@ var Latest_news = Titanium.UI.createButton({
 	style : Titanium.UI.iPhone.SystemButtonStyle.DONE,
 });
 
-Latest_news.removeEventListener("click", function() {});
+Latest_news.removeEventListener("click", function() {
+});
 
 Latest_news.addEventListener("click", function() {
 	// Ti.API.info("Opening More help");
-		checkInternet();
+	checkInternet();
 	Ti.Platform.openURL("http://www.siwriter.co.uk/latest_news");
 });
-
 
 var CyKey = Titanium.UI.createButton({
 	title : "Cykey site",
 	style : Titanium.UI.iPhone.SystemButtonStyle.DONE,
 });
 
-CyKey.removeEventListener("click", function() {});
+CyKey.removeEventListener("click", function() {
+});
 
 CyKey.addEventListener("click", function() {
 	// Ti.API.info("Opening Cykey");
-		checkInternet();
+	checkInternet();
 	Ti.Platform.openURL("https://sites.google.com/site/cykeybellaire/cykey-home-page");
 });
 
@@ -677,11 +678,12 @@ var SiWriter = Titanium.UI.createButton({
 
 });
 
-SiWriter.removeEventListener("click", function() {});
+SiWriter.removeEventListener("click", function() {
+});
 
 SiWriter.addEventListener("click", function() {
 	// Ti.API.info("Opening SiWriter");
-		checkInternet();
+	checkInternet();
 
 	Ti.Platform.openURL("http://www.siwriter.co.uk/");
 });
@@ -692,7 +694,8 @@ var Facebook = Titanium.UI.createButton({
 
 });
 
-Facebook.removeEventListener("click", function() {});
+Facebook.removeEventListener("click", function() {
+});
 
 Facebook.addEventListener("click", function() {
 	// Ti.API.info("Opening Facebook");
@@ -732,7 +735,7 @@ var speech_toolbar = Titanium.UI.iOS.createToolbar({
 });
 
 var Continue_Siwriting = Titanium.UI.iOS.createToolbar({
-	items : [flexSpace, SiWriter, flexSpace,Latest_news,flexSpace, Facebook, flexSpace, CyKey, flexSpace, close, flexSpace],
+	items : [flexSpace, SiWriter, flexSpace, Latest_news, flexSpace, Facebook, flexSpace, CyKey, flexSpace, close, flexSpace],
 	bottom : 14,
 	borderTop : true,
 	borderBottom : false,
