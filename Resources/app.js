@@ -14,11 +14,13 @@ Ti.include('js/mmp_datetime.min.js');
 // var newrelic = require('ti.newrelic');
 // newrelic.start("AA74e486693cef4750c1e890e35e57d02534907bde");
 
+/*
 if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.platformHeight) {
 	orientation = 'portrait';
 } else {
 	orientation = 'landscape';
-}
+}*/
+
 // Ti.API.info(" !!!!!!!!!!!!!!!!!!!!!!! Launched in  " + orientation);
 
 help_WindowSwitcher();
@@ -61,26 +63,9 @@ webview.addEventListener('beforeload', function(e) {
 	webview.evalJS("var LRposL='" + LRposL + "';");
 });
 /////////////////////////////////////////////////////////////////////////
-/* var Cloud = require('ti.cloud');*/
 
-//////////////////////////TO WEBVIEW from App demo/////////////////////////////
-//Ti.App.fireEvent('app:reset', { reset_pads: 'reset_pads' });
-
-////////////////////////////////////////////////////////////
-
-////////////////////FROM WEBVIEWW DEMO///////////////////////
-//Ti.App.addEventListener('app:fromWebView', function(e) {alert(e.message);});//from webview
-////////////////////////////////////////////////////////////
-//Ti.App.removeEventListener('app:sizer_switch', function(e) {
-//});
-
-//alert("here?");
 recover_settings();
-//("and here?");
 
-//Ti.App.Properties.getString('HeightP');
-//alert('line57 '+Ti.App.Properties.getInt('HeightP'));
-//alert(Ti.App.Properties.getInt("Simon"));
 
 /* Listen for variable update from Webview - fingerpads */ 
     Ti.App.addEventListener("app:HeightPtrigger", function(HeightP) {
@@ -135,21 +120,15 @@ recover_settings();
     }); 
 
 
-
-
-
-
 Ti.App.removeEventListener('Handedness', function(e) {
 
 
 });
 DoOrientation();
-//alert("once?");
 
 Ti.App.addEventListener('Handedness', function(e) {
 	LRH = e.LRH;
 
-	// Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 61 = " + LRH);
 	set_orientation_variables(orientation);
 });
 
@@ -169,12 +148,6 @@ win1.add(smallHelpView);
 win1.add(webview);
 win1.add(view);
 
-//webview.add(testButton);
-
-
-
-setSettings();
-
 
 
 Ti.App.removeEventListener('do_reset', function(e) {
@@ -183,7 +156,6 @@ Ti.App.removeEventListener('do_reset', function(e) {
 Ti.App.addEventListener('do_reset', function(e) {
 	getOrientation();
 	Titanium.App.Properties.setString("email_to_setting", aTextField.value);
-
 	help_LettersSwitch();
 	help_bigWindowSwitch();
 	Ti.App.fireEvent('webviewEvent', {
@@ -208,7 +180,6 @@ win1.add(top_view);
 top_view.add(aTrailer);
 win1.add(aTrailer);
 win1.add(version_label);
-//win1.add(build_label);
 win1.add(PrivacyTitle);
 
 if (help_windowSwitch.value == 1) {
@@ -279,19 +250,14 @@ Ti.Gesture.removeEventListener('orientationchange', function(e) {
 });
 
 Ti.Gesture.addEventListener('orientationchange', function(e) {
-	//alert(e.orientation);
 	orientation = getOrientation(e.orientation);
-	//win1.remove(webview);
 
-	//win1.add(webview);
 
 	Ti.App.fireEvent('app:orientation', {
 		orientation : orientation
 	});
 
 
-	// Ti.API.info('-- App Line 311 ---------------------------------orientation: ' + orientation);
-	// Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 119 = " + LRH);
 	set_orientation_variables(orientation);
 	return orientation;
 });
@@ -346,8 +312,6 @@ Ti.App.addEventListener('webviewEvent', function(e) {
 		txtViewDesc.value = contentTyped + "_";
 	}
 
-	// trailer = contentTyped.slice(-23);
-	// // Ti.API.info('trailer: ' + trailer);
 
 	trailer = trailer.slice(-23) + e.text;
 	aTrailer.value = trailer + "_";
@@ -399,7 +363,6 @@ settingsButton.addEventListener('click', function() {
 		setbutton = 0;
 		win1.remove(toolbar);
 		win1.remove(bottomtoolbar);
-		//if(win1.speech_toolbar(exists)){win1.remove(speech_toolbar);};
 		win1.remove(speech_toolbar);
 	}
 
@@ -413,7 +376,6 @@ speech_slider.addEventListener('change', function() {
 	}
 });
 
-//win3.add(SiWriter_help_win);
 
 btnChoosePhoto.removeEventListener('click', function(e) {
 });

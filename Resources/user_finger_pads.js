@@ -107,21 +107,12 @@ Ti.App.addEventListener('initialise', function(e) {
 Ti.App.removeEventListener("app:orientation", function(e) {
 });
 Ti.App.addEventListener("app:orientation", function(e) {
-	// Ti.API.info("!!!!!!!!app:orientation!!!!!!!!!");
 	HTMLorientation = e.orientation;
 	initialise();
-	// if (LRH == 1) {
-	// // Ti.API.info("ufp line 264 LRH="+LRH);
-	// do_righthanded(1);
-	// } else {
-	// do_lefthanded(-1);
-	// }
 	do_update();
 });
 
 function initialise() {
-
-	// Ti.API.info("initialise heard app INITIALLY say " + HTMLorientation + " to webview!!");
 	globalArrayL = [{
 		HeightL : HeightL
 	}, {
@@ -171,30 +162,6 @@ function initialise() {
 		Twist - TwistL;
 
 	}
-	//// Ti.API.info("orientation_offset  CALLED " + orientation);
-	//// Ti.API.info("UpDwn = " + UpDwn + " UdOffset= " + UdOffset + " UdOffsetP =" + UdOffsetP + " UdOffsetL= " + UdOffsetL);
-	//	chordKeyboard_id.style.margin = UdOffset + UpDwn + "px 0px 0px 0px";
-	//	webview.reload();
-	//alert("orientation="+orientation)
-
-	// Ti.API.info('!!!!!!!!!globalArrayP!!!!!!!!!!!!!!!!');
-	// Ti.API.info(globalArrayP[0]);
-	// Ti.API.info(globalArrayP[1]);
-	// Ti.API.info(globalArrayP[2]);
-	// Ti.API.info(globalArrayP[3]);
-	// Ti.API.info(globalArrayP[4]);
-	// Ti.API.info(globalArrayP[5]);
-
-	// Ti.API.info('!!!!!!!!globalArrayL!!!!!!!!!!!!!!');
-	// Ti.API.info(globalArrayL[0]);
-	// Ti.API.info(globalArrayL[1]);
-	// Ti.API.info(globalArrayL[2]);
-	// Ti.API.info(globalArrayL[3]);
-	// Ti.API.info(globalArrayL[4]);
-	// Ti.API.info(globalArrayL[5]);
-
-	// Ti.API.info("after update HTML orientation = " + HTMLorientation);
-
 }
 
 ////////////////////////////////////////////////////////////
@@ -211,7 +178,7 @@ function do_update() {
 		Twist - TwistP;
 		sizerholder.style.top = "72px";
 		chordKeyboard_id.style.margin = UpDwn + "px 0px 0px 0px";
-		appContainer.style.margin = "0px 0px 0px " + LRposP + "px";
+		//appContainer.style.margin = "0px 0px 0px " + LRposP + "px";
 		document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + TwistP + "deg)");
 		do_pad_height();
 		do_pad_width();
@@ -233,7 +200,7 @@ function do_update() {
 		adjust_pads();
 		sizerholder.style.top = "270px";
 		chordKeyboard_id.style.margin = UpDwn + "px 0px 0px 0px";
-		appContainer.style.margin = "0px 0px 0px " + LRposL + "px";
+		//appContainer.style.margin = "0px 0px 0px " + LRposL + "px";
 		document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + TwistL + "deg)");
 		do_pad_height();
 		do_pad_width();
@@ -345,17 +312,13 @@ function adjust_pads() {
 			TwistP -= 3;
 			Twist = TwistP;
 			twist(Twist);
-						Ti.App.fireEvent('app:TwistPtrigger', {TwistP: TwistP});
-
+			Ti.App.fireEvent('app:TwistPtrigger', {TwistP: TwistP});
 		} else {
 			TwistL -= 3;
 			Twist = TwistL;
 			twist(Twist);
-						Ti.App.fireEvent('app:TwistLtrigger', {TwistL: TwistL});
-
+			Ti.App.fireEvent('app:TwistLtrigger', {TwistL: TwistL});
 		}
-
-		// Ti.API.info("finger pads.js is : Twist = " + Twist + " TwistP = " + TwistP + " TwistL = " + TwistL);
 	};
 
 	did("DamountT").onTouchDown = function(info) {
@@ -364,17 +327,14 @@ function adjust_pads() {
 			TwistP += 3;
 			Twist = TwistP;
 			twist(Twist);
-						Ti.App.fireEvent('app:TwistPtrigger', {TwistP: TwistP});
+			Ti.App.fireEvent('app:TwistPtrigger', {TwistP: TwistP});
 
 		} else {
 			TwistL += 3;
 			Twist = TwistL;
 			twist(Twist);
-						Ti.App.fireEvent('app:TwistLtrigger', {TwistL: TwistL});
-
+			Ti.App.fireEvent('app:TwistLtrigger', {TwistL: TwistL});
 		}
-		// Ti.API.info("finger pads.js is : Twist = " + Twist + " TwistP = " + TwistP + " TwistL = " + TwistL);
-
 	};
 
 	///////////////////////////////////////////////////////
@@ -388,16 +348,12 @@ function adjust_pads() {
 			LRposP += 4;
 			LRpos = LRposP + LRHpoffset;
 						Ti.App.fireEvent('app:LRposPtrigger', {LRposP: LRposP});
-
 		} else {
 			LRposL += 4;
 			LRpos = LRposL + LRHloffset;
 						Ti.App.fireEvent('app:LRposLtrigger', {LRposL: LRposL});
-
 		};
-		// Ti.API.info(orientation + "+++++++++++++++++++LRposL =" + LRposL);
 		do_pad_LRpos();
-		// Ti.API.info(orientation + "+++++++++++++++++++LRposL =" + LRposL);
 	};
 
 	did("DamountP").onTouchDown = function(info) {
@@ -815,20 +771,15 @@ function do_pad_LRpos() {
 	if (HTMLorientation == 'portrait') {
 		Twist = TwistP;
 		LRpos = LRposP + LRHpoffset;
-		//finger_pads.style.margin = "0px 0px 0px " + LRpos + "px";
 	}
 	if (HTMLorientation == 'landscape') {
 		Twist = TwistL;
 		LRpos = LRposL + LRHloffset;
-		//finger_pads.style.margin = "0px 0px 0px " + LRpos + "px";
 
 	}
-	// Ti.API.info("[UFP 817] LRpos do_pad_LRpos finger pads.js is : LRpos = " + LRpos + " LRposP =" + LRposP + " LRposL =" + LRposL + " LRHpoffset = " + LRHpoffset + " LRHloffset = " + LRHloffset);
-	// Ti.API.info("[UFP 818] LHR is : = " + LRH);
+
 
 	document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + Twist + "deg)");
-
-	//do_save_pad_state_t(Twist);
 
 };
 
@@ -841,9 +792,6 @@ function do_pad_Gap() {
 	k4.style.margin = "0px 0px 0px " + Gap + "px";
 	k5.style.margin = "0px 0px 0px " + Gap + "px";
 	k6.style.margin = "0px 0px 0px " + Gap + "px";
-
-	// // Ti.API.info("variable update by user finger pads.js is :-Gap =" + Gap + " GapOffset = " + GapOffset);
-	// // Ti.API.info("finger pads.js is :-Gap/10 =" + Gap / 10);
 
 }
 
@@ -861,7 +809,6 @@ function do_pad_width() {
 }
 
 function do_pad_height() {
-	// Ti.API.info("do_pad_height after orient =" + Height);
 	k0.style.height = Height + "px";
 	k1.style.height = Height + "px";
 	k2.style.height = Height + "px";
@@ -873,7 +820,6 @@ function do_pad_height() {
 	UpperNums.style.height = (Height * 0.5) + "px";
 	Symbols.style.height = (Height * 0.5) + "px";
 
-	// Ti.API.info("variable update by user finger pads.js is :-height =" + Height);
 
 	if (Height < 0) {
 
@@ -923,8 +869,7 @@ function catchError(){
 if (isNaN(parseFloat(HeightP))) {HeightP = -10;defaults();}
 
 /* Ensure correct variable type - ie, not a string ! */
-//if (typeof HeightP === "undefined") {HeightP=-10;}
-//if (typeof HeightL === "undefined") {HeightP=-10;}
+
 if (typeof HeightP == "string") {HeightP= parseFloat(HeightP);}//alert("was a string "+HeightP);}
 if (typeof HeightL == "string") {HeightL= parseFloat(HeightL);}// alert("was a string "+HeightL);}
 if (typeof WidthL == "string") {WidthL= parseFloat(WidthL);}// alert("was a string "+WidthL);}
@@ -939,5 +884,4 @@ if (typeof TwistP == "string") {TwistP= parseFloat(TwistP);}// alert("was a stri
 if (typeof TwistL == "string") {TwistL= parseFloat(TwistL);}// alert("was a string "+TwistL);}
 if (typeof LRposP == "string") {LRposP= parseFloat(LRposP);}// alert("was a string "+LRposP);}
 if (typeof LRposL == "string") {LRposL= parseFloat(LRposL);}// alert("was a string "+LRposL);}
-//if (HeightP = -10){defaults();}
  }
