@@ -15,16 +15,16 @@ var Twist = 0;
 var UpDwn = 0;
 var LRHL = 1;
 var LRHP = 1;
-
+var LRH=1;
 
 
 //var HeightP=-10;defaults();
-//catchError(); 
+catchError(); 
 var	LRHpoffset = 0;
 var	LRHloffset = 0;
 //Titanium.App.Properties.setInt("Simon", 123);
 //alert("test");
-
+if (LRposP>4000){defaults();}//;alert("variable out of range");}
 var Hide = true;
 
 var FPPdisplay = false;
@@ -33,7 +33,7 @@ var FPPdisplay = false;
 initialise();
 do_update();
 
-//if (HeightP==0){defaults();do_update();}
+
 
 var recovered2 = "UFP HeightP "+HeightP +" HeightL="+HeightL+" WidthP="+WidthP+" WidthL="+WidthL+" GapP="+GapP+" GapL="+GapL+" UpDwnP="+UpDwnP+" UpDwnL="+UpDwnL+" LRposP="+LRposP+" LRposL="+LRposL+" TwistP="+TwistP+" TwistL="+TwistP+" LRH="+LRH+" LRHpoffset="+LRHpoffset+" LRHloffset="+LRHloffset;
 Ti.API.info(recovered2);
@@ -887,19 +887,21 @@ if (isNaN(parseFloat(HeightP))) {HeightP = -10;defaults();}
 
 /* Ensure correct variable type - ie, not a string ! */
 
-if (typeof HeightP == "string") {HeightP= parseFloat(HeightP);}//alert("was a string "+HeightP);}
-if (typeof HeightL == "string") {HeightL= parseFloat(HeightL);}// alert("was a string "+HeightL);}
-if (typeof WidthL == "string") {WidthL= parseFloat(WidthL);}// alert("was a string "+WidthL);}
-if (typeof WidthP == "string") {WidthP= parseFloat(WidthP);}// alert("was a string "+WidthP);}
-if (typeof GapP == "string") {GapP= parseFloat(GapP);}// alert("was a string "+GapP);}
-if (typeof GapL == "string") {GapL= parseFloat(GapL);}// alert("was a string "+GapP);}
-if (typeof GapP == "string") {GapP= parseFloat(GapP);}// alert("was a string "+GapP);}
-if (typeof GapL == "string") {GapL= parseFloat(GapL);}// alert("was a string "+GapP);}
-if (typeof UpDwnP == "string") {UpDwnP= parseFloat(UpDwnP);}// alert("was a string "+UpDwnP);}
-if (typeof UpDwnL == "string") {UpDwnL= parseFloat(UpDwnL);}// alert("was a string "+UpDwnL);}
-if (typeof TwistP == "string") {TwistP= parseFloat(TwistP);}// alert("was a string "+TwistP);}
-if (typeof TwistL == "string") {TwistL= parseFloat(TwistL);}// alert("was a string "+TwistL);}
-if (typeof LRposP == "string") {LRposP= parseFloat(LRposP);}// alert("was a string "+LRposP);}
-if (typeof LRposL == "string") {LRposL= parseFloat(LRposL);}// alert("was a string "+LRposL);}
+if (typeof HeightP == "string") {HeightP= parseInt(HeightP);}//alert("was a string "+HeightP);}
+if (typeof HeightL == "string") {HeightL= parseInt(HeightL);}// alert("was a string "+HeightL);}
+if (typeof WidthL == "string") {WidthL= parseInt(WidthL);}// alert("was a string "+WidthL);}
+if (typeof WidthP == "string") {WidthP= parseInt(WidthP);}// alert("was a string "+WidthP);}
+if (typeof GapP == "string") {GapP= parseInt(GapP);}// alert("was a string "+GapP);}
+if (typeof GapL == "string") {GapL= parseInt(GapL);}// alert("was a string "+GapP);}
+if (typeof GapP == "string") {GapP= parseInt(GapP);}// alert("was a string "+GapP);}
+if (typeof GapL == "string") {GapL= parseInt(GapL);}// alert("was a string "+GapP);}
+if (typeof UpDwnP == "string") {UpDwnP= parseInt(UpDwnP);}// alert("was a string "+UpDwnP);}
+//alert(typeof UpDwnL);
+if (typeof UpDwnL == "int") {UpDwnL= parseInt(UpDwnL);}// alert("UpDwnL was a string "+UpDwnL);}
+if (typeof TwistP == "string") {TwistP= parseInt(TwistP);}// alert("was a string "+TwistP);}
+if (typeof TwistL == "string") {TwistL= parseInt(TwistL);}// alert("was a string "+TwistL);}
+//alert(typeof LRposP);
+if (typeof LRposP == "string") {LRposP= parseInt(LRposP);}// alert("LRposP was a string "+LRposP);}
+if (typeof LRposL == "string") {LRposL= parseInt(LRposL);}// alert("was a string "+LRposL);}
  }
  
