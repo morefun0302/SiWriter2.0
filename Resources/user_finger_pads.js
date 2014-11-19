@@ -1,4 +1,3 @@
-//
 //  user_finger_pads.js
 //  SiWriterPro1.0.0
 //
@@ -15,24 +14,30 @@ var Twist = 0;
 var UpDwn = 0;
 var LRHL = 1;
 var LRHP = 1;
-var LRH=1;
+
+//var LRH=1;
 
 
 //var HeightP=-10;defaults();
-catchError(); 
+//catchError(); 
 var	LRHpoffset = 0;
 var	LRHloffset = 0;
-//Titanium.App.Properties.setInt("Simon", 123);
-//alert("test");
-if (LRposP>4000){defaults();}//;alert("variable out of range");}
+
+if (LRposP>4000){LRposP=0;alert(" LRposPvariable out of range");}
+if (LRposL>800){LRposL=0;alert(" LRposL variable out of range");}
+if (TwistP>800){TwistP=0;alert(" TwistP variable out of range");}
+if (TwistL>800){TwistL=0;alert(" TwistL variable out of range");}
+
 var Hide = true;
+//alert("ufp line 34 ="+ LRposP);
 
 var FPPdisplay = false;
 
 
-initialise();
+//initialise();
 do_update();
 
+			//alert("ufp line 37 ="+ LRposP);
 
 
 var recovered2 = "UFP HeightP "+HeightP +" HeightL="+HeightL+" WidthP="+WidthP+" WidthL="+WidthL+" GapP="+GapP+" GapL="+GapL+" UpDwnP="+UpDwnP+" UpDwnL="+UpDwnL+" LRposP="+LRposP+" LRposL="+LRposL+" TwistP="+TwistP+" TwistL="+TwistP+" LRH="+LRH+" LRHpoffset="+LRHpoffset+" LRHloffset="+LRHloffset;
@@ -47,8 +52,8 @@ function defaults() {//alert(HeightP);
 	LRposP = 2;
 	TwistP = 0;
 	UpDwnP = 140;
-	LRHP = 1;
-	LRHL = 1;
+	//LRHP = 1;
+	LRH = 1;
 	HeightL = 195;
 	WidthL = 91;
 	GapL = -3;
@@ -125,7 +130,8 @@ Ti.App.addEventListener("app:orientation", function(e) {
 
 
 
-function initialise() {
+function initialise() {			alert("ufp line 130 ="+ LRposP);
+
 	globalArrayL = [{
 		HeightL : HeightL
 	}, {
@@ -181,6 +187,8 @@ function initialise() {
 function do_update() {
 
 	//appContainer.style.margin = UpDwn+"px 0px 0px " + LRpos + "px";
+			//alert("ufp line 192 ="+ LRposP);
+			//alert("SW HTMLorientation="+HTMLorientation);
 
 	if (HTMLorientation == 'portrait') {
 		UpDwn = UpDwnP;
@@ -190,8 +198,9 @@ function do_update() {
 		LRpos = LRposP + LRHpoffset;
 		Twist - TwistP;
 		sizerholder.style.top = "72px";
+		//alert("ufp line 203 sizerholder ="+ sizerholder.style.top);
 		chordKeyboard_id.style.margin = UpDwn + "px 0px 0px 0px";
-		//appContainer.style.margin = "0px 0px 0px " + LRposP + "px";
+		//appContainer.style.margin = "0px 0px 0px " + LRposPL + "px";
 		document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + TwistP + "deg)");
 		do_pad_height();
 		do_pad_width();
@@ -200,6 +209,7 @@ function do_update() {
 			LRH : LRH
 		});
 		sizerholder.style.left = "10px";
+			//alert("ufp line 213 ="+ LRposL);
 
 	}
 
@@ -363,6 +373,7 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			LRposP += 4;
 			LRpos = LRposP + LRHpoffset;
+			//alert("ufp line 370 ="+ LRposP);
 			Ti.App.fireEvent('app:LRposPtrigger', {LRposP: LRposP});
 		} else {
 			LRposL += 4;

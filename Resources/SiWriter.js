@@ -11,6 +11,7 @@
 			var Caps=0;
 			var Caps_lock=false;	
 			var readKeys = false;
+			//alert("SW started running");
 			var keyMap = [  //The array that holds he key codes that are sent to the screen as inner HTML content
 				'_', // nothing pressed.
 				'spc', //1

@@ -41,12 +41,11 @@ webview.addEventListener('beforeload', function(e) {
 	var GapL = Titanium.App.Properties.getInt("GapL", 0);	
 	var UpDwnP = Titanium.App.Properties.getInt("UpDwnP", 0);
 	var UpDwnL = Titanium.App.Properties.getInt("UpDwnL", 0);
-	var LRposP = Titanium.App.Properties.getInt("LRposP", 0);
+	var LRposP = Titanium.App.Properties.getInt("LRposP", 0);//alert("app line 44 LRposP="+LRposP);
 	var LRposL = Titanium.App.Properties.getInt("LRposL", 0);	
 	var TwistP = Titanium.App.Properties.getInt("TwistP", 0);
 	var TwistL = Titanium.App.Properties.getInt("TwistL", 0);
 	var LRH = Titanium.App.Properties.getInt("LRH", 0);	
-var LRH=1;
 var recovered = "HeightP "+HeightP +" HeightL="+HeightL+" WidthP="+WidthP+" WidthL="+WidthL+" GapP="+GapP+" GapL="+GapL+" UpDwnP="+UpDwnP+" UpDwnL="+UpDwnL+" LRposP="+LRposP+" LRposL="+LRposL+" TwistP="+TwistP+" TwistL="+TwistP+" LRH="+LRH;
 Ti.API.info(recovered);
 	/* Send variable to web view */	
@@ -61,6 +60,7 @@ Ti.API.info(recovered);
 	webview.evalJS("var TwistP='" + TwistP + "';");
 	webview.evalJS("var TwistL='" + TwistL + "';");
 	webview.evalJS("var LRposP='" + LRposP + "';");
+	//alert("app line 64 LRH="+LRH);
 	webview.evalJS("var LRposL='" + LRposL + "';");
 	webview.evalJS("var LRH='" + LRH + "';");
 });
@@ -104,9 +104,11 @@ recover_settings();
         Ti.App.addEventListener("app:UpDwnLtrigger", function(UpDwnL) {
         Titanium.App.Properties.setInt('UpDwnL', UpDwnL.UpDwnL);
     }); 
-    
+    			//alert("APP line 108 ="+ LRposP);
             Ti.App.addEventListener("app:LRposPtrigger", function(LRposP) {
+            	//alert("app line 110 LRposP="+LRposP.LRposP);
         Titanium.App.Properties.setInt('LRposP', LRposP.LRposP);
+        
     });    
 
         Ti.App.addEventListener("app:LRposLtrigger", function(LRposL) {
