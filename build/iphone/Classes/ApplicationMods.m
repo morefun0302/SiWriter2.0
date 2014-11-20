@@ -30,6 +30,20 @@
 			nil
 		]];
 		
+		[modules addObject:[NSDictionary
+			dictionaryWithObjectsAndKeys:@"cdb",
+			@"name",
+			@"com.infinery.cdb",
+			@"moduleid",
+			@"2.1",
+			@"version",
+			@"6bce394a-3a5b-4e44-8dd9-ac42fdb7a0e4",
+			@"guid",
+			@"",
+			@"licensekey",
+			nil
+		]];
+		
 
 	return modules;
 }

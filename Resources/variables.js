@@ -34,8 +34,6 @@ var orient = "";
 var props = Titanium.App.Properties.listProperties();
 var Last_Typed_Word = "!?!";
 var Review_mode = 0;
-var LRposP = 0;
-var LRposL = 0;
 var KV = false;
 var temp = "";
 var Toggle = false;
@@ -52,9 +50,21 @@ var letter = "";
 var allVariables = "START";
 var LRH = Titanium.App.Properties.getInt("LRH", 0);
 var LRH = 1;
-Titanium.App.Properties.setString('locale', language);
 Titanium.App.language = language;
 // Ti.API.info(props);
+
+var UpDwnP  = null;
+var UpDwnL  = null;
+var LRposP = null;
+var LRposL = null;
+var WidthP =null;
+var WidthL =null;
+var HeightP=null;
+var HeightL=null;
+var GapP =null;
+var GapL =null;
+var TwistP=null;
+var TwistL=null;
 
 Ti.include('KS_email2.js');
 
@@ -63,10 +73,10 @@ function set_orientation_variables(orientation) {
 	// orientation : orientation
 	// });
 
-	if (orientation == "portrait") {
+	if (orientation === "portrait") {
 		portrait();
 	}
-	if (orientation == "landscape") {
+	if (orientation === "landscape") {
 		landscape();
 	}
 }
@@ -141,7 +151,7 @@ function buttonvariablesPortrait() {
 	top_view.left = "330";
 	// Ti.API.info(" HHHHHH PORTRAIT HHHHHHHHHHHHH Handedness at butt.js 271 = " + LRH);
 
-	if (LRH == -1) {//Left hand mode
+	if (LRH === -1) {//Left hand mode
 		LH_buttonvariablesPortrait();
 	}
 
@@ -226,7 +236,7 @@ function buttonvariablesLandscape() {
 
 	// Ti.API.info(" HHHHHHHHH LANDSACPE HHHHHHHHHH Handedness at variables.js 218 = " + LRH);
 
-	if (LRH == -1) {//left hand Landscape
+	if (LRH === -1) {//left hand Landscape
 		LH_buttonvariablesLandscape();
 		PrivacyTitle.left = 122;
 		version_label.left = 130;

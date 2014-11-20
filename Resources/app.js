@@ -1,24 +1,23 @@
-// var cloudebug = require("com.infinery.cdb");
-// var cdb = cloudebug.create('6d1aa3d3-db47-44ed-8680-5b6e30478b1f');
-//
-// cdb.session({
-// connected : function(e) {
-// cdb.write('info', 'cloudebug is connected to the server and ready');
-// }
-// });
+var cloudebug = require("com.infinery.cdb");
+var cdb = cloudebug.create('1d84ae67-0c60-44df-bdd6-7a4b6fa8bbeb');
+
+cdb.session(
+{
+connected: function(e)
+{
+cdb.write('info', 'cloudebug is connected to the server and ready');
+}
+});
 
 Ti.include('variables.js');
 Ti.include('functions.js');
+setallvars();
 Ti.include('js/mmp_datetime.min.js');
 //Ti.include('socialise.js');
 // var newrelic = require('ti.newrelic');
 // newrelic.start("AA74e486693cef4750c1e890e35e57d02534907bde");
 
-if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.platformHeight) {
-	orientation = 'portrait';
-} else {
-	orientation = 'landscape';
-}
+
 // Ti.API.info(" !!!!!!!!!!!!!!!!!!!!!!! Launched in  " + orientation);
 
 help_WindowSwitcher();
@@ -33,23 +32,23 @@ webview.addEventListener('beforeload', function(e) {
 	webview.evalJS("var FPhelp='" + FPhelp + "';");
 	start = 0;
 	/* Get stored variable from last time */
-	var HeightP = Titanium.App.Properties.getInt("HeightP", 0);
-	var HeightL = Titanium.App.Properties.getInt("HeightL", 0);
-	var WidthP = Titanium.App.Properties.getInt("WidthP", 0);
-	var WidthL = Titanium.App.Properties.getInt("WidthL", 0);
-	var GapP = Titanium.App.Properties.getInt("GapP", 0);
-	var GapL = Titanium.App.Properties.getInt("GapL", 0);
-	var UpDwnP = Titanium.App.Properties.getInt("UpDwnP", 0);
-	var UpDwnL = Titanium.App.Properties.getInt("UpDwnL", 0);
-	var LRposP = Titanium.App.Properties.getInt("LRposP", 0);
+	 HeightP = Titanium.App.Properties.getInt("HeightP", 0);
+	 HeightL = Titanium.App.Properties.getInt("HeightL", 0);
+	 WidthP = Titanium.App.Properties.getInt("WidthP", 0);
+	 WidthL = Titanium.App.Properties.getInt("WidthL", 0);
+	 GapP = Titanium.App.Properties.getInt("GapP", 0);
+	 GapL = Titanium.App.Properties.getInt("GapL", 0);
+	 UpDwnP = Titanium.App.Properties.getInt("UpDwnP", 0);
+	 UpDwnL = Titanium.App.Properties.getInt("UpDwnL", 0);
+	 LRposP = Titanium.App.Properties.getInt("LRposP", 0);
 	//alert("app line 44 LRposP="+LRposP);
-	var LRposL = Titanium.App.Properties.getInt("LRposL", 0);
+	 LRposL = Titanium.App.Properties.getInt("LRposL", 0);
 	// alert("app line 44 LRposL="+LRposL);
-	var TwistP = Titanium.App.Properties.getInt("TwistP", 0);
-	var TwistL = Titanium.App.Properties.getInt("TwistL", 0);
-	var LRH = Titanium.App.Properties.getInt("LRH", 0);
-	var recovered = "App51 HeightP " + HeightP + " HeightL=" + HeightL + " WidthP=" + WidthP + " WidthL=" + WidthL + " GapP=" + GapP + " GapL=" + GapL + " UpDwnP=" + UpDwnP + " UpDwnL=" + UpDwnL + " LRposP=" + LRposP + " LRposL=" + LRposL + " TwistP=" + TwistP + " TwistL=" + TwistP + " LRH=" + LRH;
-	Ti.API.info(recovered);
+	 TwistP = Titanium.App.Properties.getInt("TwistP", 0);
+	 TwistL = Titanium.App.Properties.getInt("TwistL", 0);
+	 LRH = Titanium.App.Properties.getInt("LRH", 0);
+	 
+	showvars("App 51 as sent");
 	/* Send variable to web view */
 	webview.evalJS("var HeightP='" + HeightP + "';");
 	webview.evalJS("var HeightL='" + HeightL + "';");
@@ -65,7 +64,13 @@ webview.addEventListener('beforeload', function(e) {
 	//alert("app line 64 LRH="+LRH);
 	webview.evalJS("var LRposL='" + LRposL + "';");
 	webview.evalJS("var LRH='" + LRH + "';");
+	showvars("App after sending");
 });
+if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.platformHeight) {
+	orientation = 'portrait';
+} else {
+	orientation = 'landscape';
+}
 /////////////////////////////////////////////////////////////////////////
 
 recover_settings();
@@ -528,4 +533,5 @@ help_windowSwitch.addEventListener('change', function(e) {
 });
 
 Ti.include('text_to_speech.js');
+
 

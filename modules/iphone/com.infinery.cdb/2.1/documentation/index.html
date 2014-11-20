@@ -1,0 +1,57 @@
+<h1>cdb Module</h1>
+<h2>Description</h2>
+<p>TODO: Enter your module description here</p>
+<h2>Accessing the cdb Module</h2>
+<p>To access this module from JavaScript, you would do the following:</p>
+<pre><code>var cdb = require("com.infinery.cdb");
+</code></pre>
+<p>The cdb variable is a reference to the Module object. <br />
+</p>
+<h2>Reference</h2>
+<p>How to use cloudebug remote debugger:</p>
+<ol>
+<li>
+<p>Register on the http://www.cloudebug.com.</p>
+</li>
+<li>
+<p>After the registration you will be provided with the unique token which will identify your account.</p>
+</li>
+<li>
+<p>Install cloudebug module as usual (i.e. copy zip file to the "modules" folder of your Titanium sdk installation, or copy zip file into the root of your app, the same place where tiapp.xml is).</p>
+</li>
+<li>
+<p>Here is the code sample:</p>
+</li>
+</ol>
+<p>var cloudebug = require('com.infinery.cdb');</p>
+<p>var cdb = cloudebug.createCloudebug('<put the token provided by the cloudebug.com registration here>'); </p>
+<p>cdb.session(
+{
+    connected: function(e)
+    {
+        alert('connected!');</p>
+<pre><code>    setInterval( function()
+    {
+        for (var i = 0; i &lt; 5; i++)
+        {
+            cdb.write("info", "i'll be writing this line every second 5 times");
+        }
+    }, 1000);
+}
+</code></pre>
+<p>});</p>
+<p>Once connected (as you see from the code above - you can put connection callback in to the "connected" option), you can write anything to the cloudebug console:</p>
+<p>cdb.write('<trace type>', 'message text');</p>
+<p>Your messages will appear in the page "cloudebug console" of the cloudebug.com web site.</p>
+<p>[More documentation is coming soon. You also can see it on the cloudebug.com]</p>
+<h3><strong>_PROJECTNAMEASIDENTIFIER</strong>.function</h3>
+<p>TODO: This is an example of a module function.</p>
+<h3><strong>_PROJECTNAMEASIDENTIFIER</strong>.property</h3>
+<p>TODO: This is an example of a module property.</p>
+<h2>Usage</h2>
+<p>TODO: Enter your usage example here</p>
+<h2>Author</h2>
+<p>TODO: Enter your author name, email and other contact
+details you want to share here. </p>
+<h2>License</h2>
+<p>TODO: Enter your license/legal information here.</p>

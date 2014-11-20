@@ -479,4 +479,38 @@ function do_speech(ws, letter, whole_sentance) {
 //////////////////////////END FUNCTIONS/////////////////////////
 //////////////////////////END FUNCTIONS/////////////////////////
 //////////////////////////END FUNCTIONS/////////////////////////
+ function showvars(LN){
+ Ti.API.info(LN+"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+var recovered1 = "UFP HeightP "+HeightP +" HeightL="+HeightL+" WidthP="+WidthP+" WidthL="+WidthL+" GapP="+GapP+" GapL="+GapL;
+var recovered2= " UpDwnP="+UpDwnP+" UpDwnL="+UpDwnL+" LRposP="+LRposP+" LRposL="+LRposL+" TwistP="+TwistP+" TwistL="+TwistP+" LRH="+LRH;
+Ti.API.info(recovered1);
+Ti.API.info(recovered2);
+}
+
+function setallvars(){
+	var UpDwnP  = 0;
+var UpDwnL  = 0;
+var LRposP = 0;
+var LRposL = 0;
+var WidthP =0;
+var WidthL =0;
+var HeightP=0;
+var HeightL=0;
+var GapP =0;
+var GapL =0;
+var TwistP=0;
+var TwistL=0;
+ UpDwnP  = null;
+  UpDwnL  = null;
+  LRposP = null;
+  LRposL = null;
+  WidthP =null;
+  WidthL =null;
+  HeightP=null;
+  HeightL=null;
+  GapP =null;
+  GapL =null;
+  TwistP=null;
+  TwistL=null;
+}
 

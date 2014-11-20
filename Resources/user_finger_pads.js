@@ -5,8 +5,7 @@
 //  Copyright 2014 Simon Anthony. All rights reserved.
 //
 
-//alert("ufp line 8 ");
-
+alt("ufp 8",0);
 var Height = 0;
 var Width = 0;
 var Gap = 0;
@@ -18,34 +17,35 @@ var LRHP = 1;
 
 //var LRH=1;
 
+catchError(); 
 
+//setTimeout(function(){  }, 100);   
 //var HeightP=-10;defaults();
 
 var	LRHpoffset = 0;
 var	LRHloffset = 0;
-/*
 
+/*
 if (LRposP>4000){LRposP=0;alert(" LRposPvariable out of range");}
 if (LRposL>800){LRposL=0;alert(" LRposL variable out of range");}
 if (TwistP>800){TwistP=0;alert(" TwistP variable out of range");}
 if (TwistL>800){TwistL=0;alert(" TwistL variable out of range");}
 */
 
-//alert("ufp line 34 ");
+alt("ufp line 34 ",0);
+setTimeout(function(){  }, 40000); 
+alt("ufp line 37 LRposL",LRposL);
+if (LRposP>250){alert(" LRposP variable out of range "+LRposP);LRposP=0;do_update();}
+if (LRposP<-250){alert(" LRposP variable out of range "+LRposP);LRposP=0;do_update();}
+if (LRposL>250) {alert(" LRposL variable out of range "+LRposL);LRposL=0;do_update();}
+if (LRposL<-250){alert(" LRposL variable out of range "+LRposL);LRposL=0;do_update();}
 
-/*
-if (LRposP>500){alert(" LRposPvariable out of range "+LRposP);}
-if (LRposP<-500){alert(" LRposPvariable out of range "+LRposP);}
+if (TwistP>250){alert(" TwistP variable out of range "+TwistP);TwistP=0;do_update();}
+if (TwistP<-250){alert(" TwistP variable out of range "+TwistP);TwistP=0;do_update();}
 
-if (LRposL>500){alert(" LRposL variable out of range "+LRposL);}
-if (LRposL<-500){alert(" LRposL variable out of range "+LRposL);}
+if (TwistL>250){alert(" TwistL variable out of range "+TwistL); TwistL=0;do_update();}
+if (TwistL<-250){alert(" TwistL variable out of range "+TwistL);TwistL=0;do_update();}
 
-if (TwistP>500){alert(" TwistP variable out of range "+TwistP);}
-if (TwistP<-500){alert(" TwistP variable out of range "+TwistP);}
-
-if (TwistL>500){alert(" TwistL variable out of range "+TwistL);}
-if (TwistL<-500){alert(" TwistL variable out of range "+TwistL);}
-*/
  
 var Hide = true;
 //alert("ufp line 51");
@@ -59,8 +59,7 @@ do_update();
 			//alert("ufp line 59 ");
 
 
-var recovered2 = "UFP HeightP "+HeightP +" HeightL="+HeightL+" WidthP="+WidthP+" WidthL="+WidthL+" GapP="+GapP+" GapL="+GapL+" UpDwnP="+UpDwnP+" UpDwnL="+UpDwnL+" LRposP="+LRposP+" LRposL="+LRposL+" TwistP="+TwistP+" TwistL="+TwistP+" LRH="+LRH+" LRHpoffset="+LRHpoffset+" LRHloffset="+LRHloffset;
-Ti.API.info(recovered2);
+showvars("UFP 64");
 //catchError(); 
 function defaults() {//alert(HeightP);
 //if (HeightP <0) {
@@ -103,22 +102,13 @@ Ti.App.removeEventListener('Do_help_lettersSwitch', function() {
 			//alert("ufp line 103");
 
 Ti.App.addEventListener('sizer_switch_change', function(e) {
-var recovered3 = "!!! HeightP "+HeightP +" HeightL="+HeightL+" WidthP="+WidthP+" WidthL="+WidthL+" GapP="+GapP+" GapL="+GapL+" UpDwnP="+UpDwnP+" UpDwnL="+UpDwnL+" LRposP="+LRposP+" LRposL="+LRposL+" TwistP="+TwistP+" TwistL="+TwistP+" LRH="+LRH+" LRHpoffset="+LRHpoffset+" LRHloffset="+LRHloffset;
-Ti.API.info(recovered3);
-
+showvars("UFP 108 sizer_switch_change");
 	Hide = !e.slider;
-	// Ti.API.info("slider" + e.slider);
 	if (Hide) {
 		sizers.style.display = "none";
 	} else {
 		sizers.style.display = "block";
-		// if (LRH == -1) {
-		// sizerholder.style.margin = "0px 0px 0px 30px";
-		// } else {
-		// sizerholder.style.margin = "0px 0px 0px 81px";
-		// }
 	}
-	// Ti.API.info("@!$ Hide= " + Hide);
 });
 
 ///////////////// FROM APP///////////////////////////////////////////
@@ -180,9 +170,7 @@ function initialise() {
 
 ////////////////////////////////////////////////////////////
 function do_update() {
-Ti.API.info("can do update??ufp 183 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-var recovered5 = "UFP HeightP "+HeightP +" HeightL="+HeightL+" WidthP="+WidthP+" WidthL="+WidthL+" GapP="+GapP+" GapL="+GapL+" UpDwnP="+UpDwnP+" UpDwnL="+UpDwnL+" LRposP="+LRposP+" LRposL="+LRposL+" TwistP="+TwistP+" TwistL="+TwistP+" LRH="+LRH+" LRHpoffset="+LRHpoffset+" LRHloffset="+LRHloffset;
-Ti.API.info(recovered5);
+showvars("DO UPDATE 185");
 	if (HTMLorientation == 'portrait') {
 		UpDwn = UpDwnP;
 		Height = HeightP;
@@ -230,9 +218,7 @@ Ti.API.info(recovered5);
 			sizerholder.style.left = "10px";
 		}
 
-Ti.API.info("HAS DONE update ufp 233? xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-var recovered6 = "UFP HeightP "+HeightP +" HeightL="+HeightL+" WidthP="+WidthP+" WidthL="+WidthL+" GapP="+GapP+" GapL="+GapL+" UpDwnP="+UpDwnP+" UpDwnL="+UpDwnL+" LRposP="+LRposP+" LRposL="+LRposL+" TwistP="+TwistP+" TwistL="+TwistP+" LRH="+LRH+" LRHpoffset="+LRHpoffset+" LRHloffset="+LRHloffset;
-Ti.API.info(recovered6);
+showvars("UPDATE DONE 235");
 	}
 
 	// Ti.API.info("update done");
@@ -650,7 +636,7 @@ function do_pad_fphelp(FPhelp) {
 
 	// Ti.API.info("ufp line 464 do_pad_fphelp:-" + FPhelp);
 	do_save_pad_state_fph(FPhelp);
-				if ((FPhelp) == true){
+				if ((FPhelp) === true){
 					//alert("False ? FPhelp ="+FPhelp);
 				$("#k0").addClass("chordKeywLG");
 				$("#k1").addClass("chordKeywLG");
@@ -770,11 +756,11 @@ function get_user_settings() {
 }
 
 function do_pad_LRpos() {
-	if (HTMLorientation == 'portrait') {
+	if (HTMLorientation === 'portrait') {
 		Twist = TwistP;
 		LRpos = LRposP + LRHpoffset;
 	}
-	if (HTMLorientation == 'landscape') {
+	if (HTMLorientation === 'landscape') {
 		Twist = TwistL;
 		LRpos = LRposL + LRHloffset;
 
@@ -868,27 +854,39 @@ function blank_helper_text() {
 }
 
 function catchError(){
-Ti.API.info("Strings? xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-var recovered4 = "UFP HeightP "+HeightP +" HeightL="+HeightL+" WidthP="+WidthP+" WidthL="+WidthL+" GapP="+GapP+" GapL="+GapL+" UpDwnP="+UpDwnP+" UpDwnL="+UpDwnL+" LRposP="+LRposP+" LRposL="+LRposL+" TwistP="+TwistP+" TwistL="+TwistP+" LRH="+LRH+" LRHpoffset="+LRHpoffset+" LRHloffset="+LRHloffset;
-Ti.API.info(recovered4);
+showvars("ufp 869 catch error");
 
 /* Ensure correct variable type - ie, not a string ! */
 
-if (typeof HeightP == "string") {HeightP= parseInt(HeightP);}//alert("was a string "+HeightP);}
-if (typeof HeightL == "string") {HeightL= parseInt(HeightL);}// alert("was a string "+HeightL);}
-if (typeof WidthL == "string") {WidthL= parseInt(WidthL);}// alert("was a string "+WidthL);}
-if (typeof WidthP == "string") {WidthP= parseInt(WidthP);}// alert("was a string "+WidthP);}
-if (typeof GapP == "string") {GapP= parseInt(GapP);}// alert("was a string "+GapP);}
-if (typeof GapL == "string") {GapL= parseInt(GapL);}// alert("was a string "+GapP);}
-if (typeof GapP == "string") {GapP= parseInt(GapP);}// alert("was a string "+GapP);}
-if (typeof GapL == "string") {GapL= parseInt(GapL);}// alert("was a string "+GapP);}
-if (typeof UpDwnP == "string") {UpDwnP= parseInt(UpDwnP);}// alert("was a string "+UpDwnP);}
+if (typeof HeightP === "string") {HeightP= parseInt(HeightP);}//alert("was a string "+HeightP);}
+if (typeof HeightL === "string") {HeightL= parseInt(HeightL); }//alert("was a string "+HeightL);}
+if (typeof WidthL === "string") {WidthL= parseInt(WidthL);}//alert("was a string "+WidthL);}
+if (typeof WidthP === "string") {WidthP= parseInt(WidthP); }//alert("was a string "+WidthP);}
+if (typeof GapP === "string") {GapP= parseInt(GapP);}//alert("was a string "+GapP);}
+if (typeof GapL === "string") {GapL= parseInt(GapL); }//alert("was a string "+GapP);}
+if (typeof GapP === "string") {GapP= parseInt(GapP);}// alert("was a string "+GapP);}
+if (typeof GapL === "string") {GapL= parseInt(GapL); }//alert("was a string "+GapP);}
+if (typeof UpDwnP === "string") {UpDwnP= parseInt(UpDwnP);}// alert("was a string "+UpDwnP);}
 //alert(typeof UpDwnL);
-if (typeof UpDwnL == "int") {UpDwnL= parseInt(UpDwnL);}// alert("UpDwnL was a string "+UpDwnL);}
-if (typeof TwistP == "string") {TwistP= parseInt(TwistP);}// alert("was a string "+TwistP);}
-if (typeof TwistL == "string") {TwistL= parseInt(TwistL);}// alert("was a string "+TwistL);}
+if (typeof UpDwnL === "int") {UpDwnL= parseInt(UpDwnL);}// alert("UpDwnL was a string "+UpDwnL);}
+if (typeof TwistP === "string") {TwistP= parseInt(TwistP);}// alert("was a string "+TwistP);}
+if (typeof TwistL === "string") {TwistL= parseInt(TwistL);}// alert("was a string "+TwistL);}
 //alert(typeof LRposP);
-if (typeof LRposP == "string") {LRposP= parseInt(LRposP);}// alert("LRposP was a string "+LRposP);}
-if (typeof LRposL == "string") {LRposL= parseInt(LRposL);}// alert("was a string "+LRposL);}
+if (typeof LRposP === "string") {LRposP = parseInt(LRposP);}// alert("LRposP was a string "+LRposP);}
+if (typeof LRposL === "string") {LRposL = parseInt(LRposL); }//alert("was a string "+LRposL);}
  }
  
+ 
+ function showvars(LN){
+ Ti.API.info(LN+"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+var recovered1 = "UFP HeightP "+HeightP +" HeightL="+HeightL+" WidthP="+WidthP+" WidthL="+WidthL+" GapP="+GapP+" GapL="+GapL;
+var recovered2= " UpDwnP="+UpDwnP+" UpDwnL="+UpDwnL+" LRposP="+LRposP+" LRposL="+LRposL+" TwistP="+TwistP+" TwistL="+TwistP+" LRH="+LRH+" LRHpoffset="+LRHpoffset+" LRHloffset="+LRHloffset;
+Ti.API.info(recovered1);
+Ti.API.info(recovered2);
+}
+
+function alt(LN,v){}/*
+
+	alert(LN+"="+v);
+}*/
+

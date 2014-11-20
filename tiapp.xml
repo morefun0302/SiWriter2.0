@@ -49,12 +49,14 @@
     </mobileweb>
     <modules>
         <module platform="iphone">bencoding.utterance</module>
+        <module platform="iphone" version="1.0">com.infinery.cdb</module>
+        <module platform="android" version="1.0">com.infinery.cdb</module>
     </modules>
     <deployment-targets>
         <target device="tizen">false</target>
         <target device="mobileweb">false</target>
         <target device="blackberry">false</target>
-        <target device="android">true</target>
+        <target device="android">false</target>
         <target device="ipad">true</target>
         <target device="iphone">true</target>
     </deployment-targets>
